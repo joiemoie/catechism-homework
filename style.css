@@ -1,0 +1,338 @@
+:root {
+    /* Palette: Medieval & Catholic inspired */
+    --primary-color: #5d001e; /* Deep Burgundy/Crimson (Blood of Martyrs/Royalty) */
+    --secondary-color: #002366; /* Royal Marian Blue */
+    --accent-gold: #c5a017; /* Old Gold */
+    --accent-gold-light: #e6c65c;
+    
+    --bg-parchment: #fdfbf7; /* Light Parchment */
+    --bg-darker: #f4e4bc; /* Aged Paper for borders/accents */
+    
+    --text-main: #2b1b17; /* Dark Brown/Black (Ink) */
+    --text-light: #594a42;
+    
+    --border-color: #d4af37;
+    
+    /* Typography */
+    --font-heading: 'Cinzel Decorative', 'Cinzel', serif;
+    --font-subheading: 'Cinzel', serif;
+    --font-body: 'Crimson Text', serif;
+    
+    --radius: 4px; /* Less rounded, more book-like */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: #e8e0d5; /* Background behind the "paper" */
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20.5V18H0v-2h20v-2H0v-2h20v-2H0V8h20V6H0V4h20V2H0V0h22v20h2V0h2v20h2V0h2v20h2V0h2v20h2v2H22v20h-2v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2H0v-2h20v-2h20z' fill='%23d6cbb8' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    font-size: 19px; /* Slightly larger text for readability */
+}
+
+.container {
+    background-color: var(--bg-parchment);
+    width: 100%;
+    max-width: 850px;
+    border: 1px solid #d4af37;
+    box-shadow: 
+        0 0 0 8px var(--primary-color), /* Double border effect */
+        0 0 0 9px var(--accent-gold),
+        0 20px 50px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+/* Decorative corner ornaments (CSS only) */
+.container::before, .container::after {
+    content: "✠"; /* Cross symbol */
+    position: absolute;
+    font-size: 2rem;
+    color: var(--accent-gold);
+    top: -24px;
+    z-index: 2;
+    background: var(--primary-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--accent-gold);
+}
+.container::before { left: -20px; }
+.container::after { right: -20px; }
+
+header {
+    background-color: var(--bg-parchment);
+    color: var(--primary-color);
+    padding: 4rem 3rem 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--accent-gold);
+    position: relative;
+}
+
+header::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 1.5rem auto 0;
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    color: var(--primary-color);
+    text-shadow: 1px 1px 0px rgba(212, 175, 55, 0.3);
+}
+
+header h2 {
+    font-family: var(--font-subheading);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.meta-info {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: var(--font-subheading);
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.badge, .due-date {
+    border-bottom: 1px solid var(--accent-gold);
+    padding-bottom: 2px;
+}
+
+main {
+    padding: 3rem 4rem;
+}
+
+@media (max-width: 768px) {
+    main { padding: 2rem; }
+    header { padding: 3rem 1.5rem 1.5rem; }
+    header h1 { font-size: 2.2rem; }
+}
+
+.instructions {
+    background-color: rgba(212, 175, 55, 0.1); /* Very light gold bg */
+    border: 1px solid var(--accent-gold);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.instructions h3 {
+    font-family: var(--font-subheading);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.instructions p {
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.points {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.25rem 1rem;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 700;
+    font-family: var(--font-subheading);
+    font-style: normal !important;
+}
+
+.form-group {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.form-group:last-of-type {
+    border-bottom: none;
+}
+
+/* Drop cap / Numbering style */
+label {
+    display: block;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    font-family: var(--font-subheading);
+    line-height: 1.3;
+}
+
+/* Inputs with "Old Paper" feel */
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #fff;
+    box-shadow: 0 0 0 1px var(--primary-color), inset 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* Custom Checkboxes and Radios */
+.checkbox-group, .radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.radio-group.inline {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.option {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-weight: 400;
+    color: var(--text-main);
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    transition: color 0.2s;
+}
+
+.option:hover {
+    color: var(--primary-color);
+}
+
+.option span {
+    padding-top: 2px;
+}
+
+/* Accent color for radio/checkbox */
+input[type="radio"], input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    transform: scale(1.15);
+    margin-top: 5px;
+}
+
+/* Blockquote style */
+.quote {
+    background: transparent;
+    border-left: 3px solid var(--accent-gold);
+    border-right: 3px solid var(--accent-gold);
+    margin: 1rem 0 2rem 0;
+    padding: 1rem 2rem;
+    font-style: italic;
+    color: var(--text-light);
+    text-align: center;
+    position: relative;
+}
+
+.quote footer {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    border: none;
+    background: none;
+}
+
+.form-actions {
+    margin-top: 4rem;
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 3px double var(--accent-gold);
+}
+
+.submit-btn {
+    background-color: var(--primary-color);
+    color: var(--accent-gold);
+    border: 2px solid var(--primary-color);
+    padding: 1rem 3.5rem;
+    font-size: 1.3rem;
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-btn:hover {
+    background-color: var(--text-main); /* Darker black/brown */
+    color: #fff;
+    border-color: var(--text-main);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-family: var(--font-subheading);
+    background-color: var(--bg-parchment);
+    border-top: 1px solid var(--accent-gold);
+}
+
+/* Success Page Specifics */
+.success-message {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+.success-icon {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 0 var(--accent-gold);
+}
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-family: var(--font-subheading);
+    font-weight: 700;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+.back-link:hover {
+    border-bottom-color: var(--primary-color);
+}
