@@ -38,27 +38,28 @@ exports.handler = async (event, context) => {
 
   // --- Answer Key & Rubric ---
   const questions = [
-    { id: "book_title", type: "radio", points: 2, correct: "The Imitation of Christ", text: "Book by Thomas à Kempis?" },
-    { id: "goretti_dream", type: "radio", points: 2, correct: "14 Lilies", text: "Maria Goretti's gift in the dream?" },
-    { id: "contemplative_def", type: "radio", points: 2, correct: "Silent gaze", text: "Definition of Contemplative Prayer?" },
-    { id: "praise_vs_thanks", type: "radio", points: 2, correct: "Gift vs Being", text: "Thanksgiving vs Praise?" },
-    { id: "prayer_form_intercession", type: "radio", points: 2, correct: "Intercession", text: "Prayer for others?" },
-    { id: "daily_bread", type: "radio", points: 2, correct: "Spiritual and physical", text: "Daily Bread meaning?" },
-    { id: "dryness_response", type: "radio", points: 2, correct: "Persevere", text: "Response to dryness in prayer?" },
-    { id: "sacramentals_def", type: "radio", points: 2, correct: "Prepare grace", text: "Sacramentals vs Sacraments?" },
-    { id: "sacramental_examples", type: "checkbox", points: 3, correct: ["Holy Water", "Ashes", "Rosary", "May Crowning"], text: "Examples of Sacramentals" },
-    { id: "may_crowning", type: "open", points: 5, text: "What does May Crowning symbolize?" },
-    { id: "meditative_vs_contemplative", type: "open", points: 5, text: "Difference between Meditative and Contemplative prayer?" },
-    { id: "god_argument", type: "radio", points: 2, correct: "Argument from Fine Tuning", text: "Argument from precise physical constants?" },
-    { id: "animals_morality", type: "radio", points: 2, correct: "Cruelty vs Stewardship", text: "Morality regarding animals?" },
-    { id: "collective_guilt", type: "radio", points: 2, correct: "Personal Responsibility", text: "Christian view on collective guilt?" },
-    { id: "basil_hospitals", type: "radio", points: 2, correct: "Commandment of Love", text: "Motivation for first hospitals?" },
-    { id: "judging_lie", type: "radio", points: 2, correct: "Hypocrisy vs Truth", text: "Catholic response to 'Don't judge'?" },
-    { id: "definition_goodness", type: "radio", points: 2, correct: "Aligned with Nature", text: "Definition of 'Good'?" },
-    { id: "moral_act_parts", type: "checkbox", points: 3, correct: ["The Object Chosen", "The Intention", "The Circumstances"], text: "Three parts of a moral act" },
-    { id: "conflict_reality", type: "open", points: 5, text: "Reality of conflict vs Oppressor/Oppressed?" },
-    { id: "practical_steps", type: "checkbox", points: 3, correct: ["Priest", "Fr Mike Schmitz", "Catholic Friends", "Catechism and Scripture"], text: "Practical steps to a good life" },
+    { id: "q1_holiness", type: "radio", points: 5, correct: "B", text: "1. The universal call to holiness teaches that:" },
+    { id: "q2_precept", type: "radio", points: 5, correct: "C", text: "2. Which of the following is a required precept of the Church?" },
+    { id: "q3_elements", type: "radio", points: 5, correct: "B", text: "3. The three elements of a moral act are:" },
+    { id: "q4_evil", type: "radio", points: 5, correct: "C", text: "4. If the object of an act is intrinsically evil:" },
+    { id: "q5_lever", type: "radio", points: 5, correct: "B", text: "5. Case Study A (The Lever): Why is this considered permissible?" },
+    { id: "q6_bridge_open", type: "open", points: 10, text: "6. Case Study B (The Bridge): Explain moral difference from Lever (Means)." },
+    { id: "q7_bomb_open", type: "open", points: 10, text: "7. Case Study C (Nagasaki): Analyze General Groves/Fat Man bomb using moral elements." },
+    { id: "q_app_combined", type: "open", points: 10, text: "8. Application (Lies to teacher): Identify Object, Intention, Circumstances." },
+    { id: "q9_conscience", type: "radio", points: 5, correct: "C", text: "9. Conscience is best described as:" },
+    { id: "q10_formed", type: "radio", points: 5, correct: "B", text: "10. A properly formed conscience requires:" },
+    { id: "q11_end_means", type: "radio", points: 5, correct: "C", text: "11. The principle 'the end does not justify the means' means:" },
+    { id: "q12_christ", type: "radio", points: 5, correct: "C", text: "12. Christ fulfilled the Ten Commandments by:" },
+    { id: "q13_omission", type: "radio", points: 5, correct: "B", text: "13. A sin of omission is:" },
+    { id: "q14_venial", type: "radio", points: 5, correct: "C", text: "14. Venial sin:" },
+    { id: "q15_mortal", type: "radio", points: 5, correct: "C", text: "15. Mortal sin requires:" },
+    { id: "q16_penance", type: "radio", points: 5, correct: "C", text: "16. The Sacrament of Penance restores:" },
+    { id: "q17_silent_friend_mc", type: "radio", points: 5, correct: "B", text: "17. Case Study (The Silent Friend): This is an example of:" },
+    { id: "q18_final_reflection", type: "open", points: 5, text: "18. Final Reflection: Justifying evil by good outcomes." }
   ];
+
+  // Map individual fields to combined questions if necessary
+  userAnswers.q_app_combined = `Object: ${userAnswers.q_app_object || 'N/A'}, Intention: ${userAnswers.q_app_intention || 'N/A'}, Circumstances: ${userAnswers.q_app_circumstances || 'N/A'}`;
 
   let totalScore = 0;
   let maxScore = 0;
@@ -128,7 +129,7 @@ exports.handler = async (event, context) => {
   const objectiveResults = results.filter(r => !r.needsAi);
 
   const promptText = `
-    You are a Catholic theology teacher grading confirmation homework.
+    You are a Catholic theology teacher grading a Confirmation Moral Reasoning Assessment.
     
     TASK 1: Grade the following ${openQuestions.length} open-ended student answers.
     For each answer, provide:
@@ -137,9 +138,9 @@ exports.handler = async (event, context) => {
     - A sample "perfect" answer.
 
     TASK 2: Provide a "Holistic Feedback" summary for the student.
-    - Review the "Objective Results" (Multiple Choice/Checkbox) provided below to see what they got Right/Wrong.
+    - Review the "Objective Results" (Multiple Choice) provided below to see what they got Right/Wrong.
     - Review their Open-Ended answers.
-    - Write a short paragraph (3-4 sentences) addressing the student directly. Praise their strengths (topics they know) and gently point out areas to review (topics they missed). Be encouraging!
+    - Write a short paragraph (3-4 sentences) addressing the student directly. Praise their moral reasoning where it is sound, and gently correct any consequentialist errors (e.g., "the end justifies the means"). Be encouraging!
 
     --- DATA ---
     
@@ -156,7 +157,7 @@ exports.handler = async (event, context) => {
         { "id": "question_id", "score": 5, "analysis": "...", "sample_answer": "..." },
         ...
       ],
-      "holistic_feedback": "Dear Student, excellent work on... You might want to review..."
+      "holistic_feedback": "Dear Student, your reasoning on the principle of double effect was strong..."
     }
   `;
 

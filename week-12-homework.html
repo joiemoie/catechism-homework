@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Week 12 Homework - Our Lady of Peace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Lady of Peace</h1>
+            <h2>Confirmation Catechism</h2>
+            <div class="meta-info">
+                <span class="badge">Homework: Feb 3rd - Feb 10th</span>
+                <span class="due-date">Due: Feb 10th, 2026</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <p>Please complete the homework below.</p>
+                <p><strong>Reading:</strong> Finish the rest of Chapter 9.</p>
+                <p><strong>Lecture:</strong> This homework covers the remaining questions on "Prayer and the Interior Life" (Maria Goretti, etc.) and the new lecture on "Arguments for the Existence of God & Morality".</p>
+                <p class="points">Total points: 58</p>
+            </section>
+
+            <!-- Results Container (Hidden by default) -->
+            <div id="results-area" style="display: none;">
+                <div class="success-message">
+                    <div class="success-icon">✓</div>
+                    <h2>Homework Submitted!</h2>
+                    <p>Your responses have been graded.</p>
+                    <div class="score-card" style="margin: 2rem 0; padding: 2rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold);">
+                        <h3 style="font-size: 2rem; color: var(--primary-color);">Score: <span id="final-score">--</span> / <span id="max-score">--</span></h3>
+                    </div>
+                </div>
+                <div id="detailed-results"></div>
+                <div class="form-actions">
+                    <a href="index.html" class="submit-btn" style="text-decoration: none;">Start Over</a>
+                </div>
+            </div>
+
+            <!-- Loading Indicator (Hidden by default) -->
+            <div id="loading-indicator" style="display: none; text-align: center; padding: 4rem;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary-color);">Grading with AI...</h3>
+                <p>Please wait while we analyze your open responses.</p>
+            </div>
+
+            <!-- Hidden Netlify Form for Data Capture -->
+            <form name="homework-grades" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="hidden" name="form-name" value="homework-grades" />
+                <input type="text" name="student_name" />
+                <input type="email" name="parent_email" />
+                <input type="text" name="due_date" value="Feb 10th, 2026" />
+                <input type="number" name="percent_score" />
+                <textarea name="ai_feedback"></textarea>
+                <textarea name="email_html_body"></textarea>
+            </form>
+
+            <form id="homework-form">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" name="name" required placeholder="First and Last Name">
+                </div>
+
+                <!-- Parent Email -->
+                <div class="form-group">
+                    <label for="email">Parent's Email (for results)</label>
+                    <input type="email" id="email" name="email" required placeholder="parent@example.com">
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SECTION 1: Prayer & Interior Life (Rest of Prev Lecture) -->
+                <!-- ========================================== -->
+
+                <!-- Q1: Imitation of Christ -->
+                <div class="form-group">
+                    <label>The lecture mentions a book by Thomas à Kempis, considered the most widely read devotional book in history after the Bible. What is it called? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="book_title" value="The Interior Castle">
+                            <span>The Interior Castle</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="book_title" value="The Imitation of Christ">
+                            <span>The Imitation of Christ</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="book_title" value="Introduction to the Devout Life">
+                            <span>Introduction to the Devout Life</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="book_title" value="Story of a Soul">
+                            <span>Story of a Soul</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q2: Maria Goretti - Lilies -->
+                <div class="form-group">
+                    <label>In Alessandro’s dream which led to his conversion, what did Maria Goretti offer him? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="goretti_dream" value="A cup of water">
+                            <span>A cup of water to quench his thirst</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="goretti_dream" value="14 Lilies">
+                            <span>14 Lilies, symbolizing the 14 wounds he inflicted</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="goretti_dream" value="A rosary">
+                            <span>A rosary made of white pearls</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="goretti_dream" value="A bible">
+                            <span>A bible open to the Gospel of Luke</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q3: Types of Prayer (Contemplative) -->
+                <div class="form-group">
+                    <label>How does the text describe "Contemplative Prayer", the highest form of prayer? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="contemplative_def" value="Loud vocal praise">
+                            <span>Praying aloud in a group with charismatic songs.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="contemplative_def" value="Intellectual study">
+                            <span>Intense intellectual study of theological dogmas.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="contemplative_def" value="Silent gaze">
+                            <span>A silent gaze of faith at God; a communion of heart to heart.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="contemplative_def" value="Asking for things">
+                            <span>Making a detailed list of petitions for personal needs.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q4: Forms of Prayer (Praise vs Thanksgiving) -->
+                <div class="form-group">
+                    <label>What is the difference between "Thanksgiving" and "Praise"? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="praise_vs_thanks" value="No difference">
+                            <span>There is no real difference; they are the same thing.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="praise_vs_thanks" value="Gift vs Being">
+                            <span>Thanksgiving thanks God for His gifts; Praise glorifies Him simply because He is God, regardless of what He does.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="praise_vs_thanks" value="Private vs Public">
+                            <span>Thanksgiving is private prayer; Praise must always be done publicly in church.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q5: Intercession -->
+                <div class="form-group">
+                    <label>What form of prayer involves requesting things for <em>other people</em> (their salvation, well-being, conversion)? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group inline">
+                        <label class="option"><input type="radio" name="prayer_form_intercession" value="Adoration"> <span>Adoration</span></label>
+                        <label class="option"><input type="radio" name="prayer_form_intercession" value="Petition"> <span>Petition</span></label>
+                        <label class="option"><input type="radio" name="prayer_form_intercession" value="Intercession"> <span>Intercession</span></label>
+                        <label class="option"><input type="radio" name="prayer_form_intercession" value="Blessing"> <span>Blessing</span></label>
+                    </div>
+                </div>
+
+                <!-- Q6: Daily Bread -->
+                <div class="form-group">
+                    <label>In the Lord's Prayer, what do we ask for when we say "Give us this day our daily bread"? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="daily_bread" value="Only food">
+                            <span>Only physical food to keep our bodies alive.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="daily_bread" value="Eucharist only">
+                            <span>Only the Holy Eucharist for Sunday Mass.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="daily_bread" value="Spiritual and physical">
+                            <span>Our daily needs, both spiritual and physical.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="daily_bread" value="Wealth">
+                            <span>Financial prosperity and success in our careers.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q7: Dryness -->
+                <div class="form-group">
+                    <label>The lecture mentions St. John of the Cross and St. Teresa of Calcutta experienced periods of "dryness" in prayer. What does the text recommend we do during these times? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="dryness_response" value="Stop praying">
+                            <span>Stop praying until the feeling returns.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="dryness_response" value="Change religion">
+                            <span>Look for a new religion that is more exciting.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="dryness_response" value="Persevere">
+                            <span>Be steadfast, patient in tribulation, and constant in prayer (Persevere).</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q8: Sacramentals Definition -->
+                <div class="form-group">
+                    <label>How do "Sacramentals" differ from "Sacraments"? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="sacramentals_def" value="More powerful">
+                            <span>Sacramentals are more powerful than Sacraments.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="sacramentals_def" value="Prepare grace">
+                            <span>Sacramentals do not confer grace directly like Sacraments, but they prepare us to receive grace and dispose us to cooperate with it.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="sacramentals_def" value="Just decoration">
+                            <span>Sacramentals are just decorations and have no spiritual value.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q9: Identify Sacramentals -->
+                <div class="form-group">
+                    <label>Which of the following are examples of Sacramentals mentioned in the text? (Select all that apply) <span style="font-size: 0.8em; color: var(--text-light);">(3 points)</span></label>
+                    <div class="checkbox-group">
+                        <label class="option">
+                            <input type="checkbox" name="sacramental_examples" value="Holy Water">
+                            <span>Holy Water</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="sacramental_examples" value="Baptism">
+                            <span>The Sacrament of Baptism</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="sacramental_examples" value="Ashes">
+                            <span>Ashes (on Ash Wednesday)</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="sacramental_examples" value="Rosary">
+                            <span>The Rosary / Sacred Objects</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="sacramental_examples" value="May Crowning">
+                            <span>May Crowning</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q10: Liturgical Calendar -->
+                <div class="form-group">
+                    <label>What does the "May Crowning" symbolize? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <textarea id="may_crowning" name="may_crowning" rows="3" placeholder="Type your answer here..."></textarea>
+                </div>
+                
+                 <!-- Q11: Meditative vs Contemplative -->
+                <div class="form-group">
+                    <label>In your own words, briefly explain the difference between "Meditative Prayer" and "Contemplative Prayer". <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <textarea id="meditative_vs_contemplative" name="meditative_vs_contemplative" rows="5" placeholder="Meditative prayer is... whereas Contemplative prayer is..."></textarea>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SECTION 2: Existence of God & Morality -->
+                <!-- ========================================== -->
+
+                <!-- Q12: Arguments for God -->
+                <div class="form-group">
+                    <label>The lecture listed several arguments for the existence of God. Which argument suggests that the universe's physical constants are so precise that they imply a Designer? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="god_argument" value="Ontological Argument">
+                            <span>The Ontological Argument</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="god_argument" value="Argument from Fine Tuning">
+                            <span>The Argument from Fine Tuning</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="god_argument" value="Argument from History">
+                            <span>The Argument from History</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="god_argument" value="Moral Argument">
+                            <span>The Moral Argument</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q13: Animals and Nature -->
+                <div class="form-group">
+                    <label>The lecture discussed the verse "You shall not boil a kid in its mother’s milk" (Exodus 23:19). What does this teach us about our relationship with animals? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="animals_morality" value="Veganism">
+                            <span>It teaches that killing animals is never justified (Ethical Veganism).</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="animals_morality" value="Cruelty vs Stewardship">
+                            <span>It teaches that while animals are not equal to humans (who are in God's image), we must still not be cruel and should respect the order of nature.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="animals_morality" value="Dietary Laws">
+                            <span>It is strictly a dietary health rule with no moral implication.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q14: Collective Guilt -->
+                <div class="form-group">
+                    <label>How does Christianity uniquely solve the problem of "collective guilt" (e.g., the Caste system or generational curses)? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <blockquote class="quote">
+                        “The son shall not suffer for the iniquity of the father, nor the father suffer for the iniquity of the son.” — Ezekiel 18:20
+                    </blockquote>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="collective_guilt" value="Group Punishment">
+                            <span>It affirms that whole families should be punished for the sins of one member.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="collective_guilt" value="Personal Responsibility">
+                            <span>It reveals that sin is a personal act; each individual is responsible for their own righteousness or wickedness.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="collective_guilt" value="Honor Killings">
+                            <span>It supports honor killings to restore the family's reputation.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q15: St Basil / Hospitals -->
+                <div class="form-group">
+                    <label>St. Basil the Great is credited with creating the first hospitals. This shift occurred because Christianity replaced "Hammurabi Code justice" with what? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="basil_hospitals" value="Profit">
+                            <span>A profit-driven medical system.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="basil_hospitals" value="Commandment of Love">
+                            <span>A Commandment of Love.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="basil_hospitals" value="Scientific Inquiry">
+                            <span>Purely scientific inquiry without moral reasoning.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q16: Judging -->
+                <div class="form-group">
+                    <label>A modern lie states: "You can’t judge, because judging is wrong." What is the Catholic response? <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="judging_lie" value="Agree">
+                            <span>True, we should never make any moral judgments about actions.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="judging_lie" value="Hypocrisy vs Truth">
+                            <span>You can judge actions as right or wrong, though you ought not to be a hypocrite while doing so.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="judging_lie" value="Personal Truth">
+                            <span>Judging is wrong because everyone has their own truth.</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q17: Definition of Goodness -->
+                <div class="form-group">
+                    <label>In Catholic thought, how do we define if something is "good"? (Think of the pencil analogy). <span style="font-size: 0.8em; color: var(--text-light);">(2 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option">
+                            <input type="radio" name="definition_goodness" value="Feeling">
+                            <span>Something is good if it makes people feel happy or validated.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="definition_goodness" value="Social Consensus">
+                            <span>Something is good if the majority of society agrees it is acceptable.</span>
+                        </label>
+                        <label class="option">
+                            <input type="radio" name="definition_goodness" value="Aligned with Nature">
+                            <span>Something is good if it is aligned with its nature (e.g., a pencil is good if it writes; a person is good if they know and love God).</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q18: CCC 1750 Moral Acts -->
+                <div class="form-group">
+                    <label>According to CCC 1750, what three things does the morality of a human act depend on? <span style="font-size: 0.8em; color: var(--text-light);">(3 points)</span></label>
+                    <div class="checkbox-group">
+                        <label class="option">
+                            <input type="checkbox" name="moral_act_parts" value="The Object Chosen">
+                            <span>The Object Chosen (The act itself)</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="moral_act_parts" value="Public Opinion">
+                            <span>Public Opinion</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="moral_act_parts" value="The Intention">
+                            <span>The End in view or the Intention</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="moral_act_parts" value="The Circumstances">
+                            <span>The Circumstances of the action</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="moral_act_parts" value="Financial Cost">
+                            <span>The Financial Cost</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Q19: Modern Lies - Conflict -->
+                <div class="form-group">
+                    <label>The lecture critiqued the modern idea that "All conflict is Oppressor vs. Oppressed." What is the reality? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <textarea id="conflict_reality" name="conflict_reality" rows="3" placeholder="Conflict is..."></textarea>
+                </div>
+
+                <!-- Q20: Practical Steps -->
+                <div class="form-group">
+                    <label>To be a "good person" foundationally, we need resources. Which of the following were mentioned as practical ways to build a good life? (Select all that apply) <span style="font-size: 0.8em; color: var(--text-light);">(3 points)</span></label>
+                    <div class="checkbox-group">
+                        <label class="option">
+                            <input type="checkbox" name="practical_steps" value="Priest">
+                            <span>A good relationship with a Priest</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="practical_steps" value="Fr Mike Schmitz">
+                            <span>Good media (e.g., Fr. Mike Schmitz)</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="practical_steps" value="Catholic Friends">
+                            <span>Strong Catholic Friends</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="practical_steps" value="Vague Kindness">
+                            <span>Just vaguely trying to be "kind" without definition</span>
+                        </label>
+                        <label class="option">
+                            <input type="checkbox" name="practical_steps" value="Catechism and Scripture">
+                            <span>The Catechism and Scripture</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Homework</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Our Lady of Peace Catechism Program</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

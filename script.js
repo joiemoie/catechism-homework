@@ -36,7 +36,7 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         }
 
         // Ensure specific checkbox fields are arrays even if only one item is selected
-        const arrayFields = ["sacramental_examples", "moral_act_parts", "practical_steps"];
+        const arrayFields = [];
         arrayFields.forEach(field => {
             if (answers[field] && !Array.isArray(answers[field])) {
                 answers[field] = [answers[field]];
@@ -68,11 +68,11 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         const studentNameVal = answers.name || 'Anonymous';
         let emailHtml = `
             <div style="font-family: 'Georgia', serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background: #fff; border: 1px solid #eee;">
-                <h2 style="color: #2c3e50; text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">Confirmation Homework Results</h2>
+                <h2 style="color: #2c3e50; text-align: center; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">Confirmation Assessment Results</h2>
                 
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
                     <p style="margin: 5px 0; color: #666;">Student: <strong>${studentNameVal}</strong></p>
-                    <p style="margin: 5px 0; color: #666;">Due Date: <strong>Feb 10th, 2026</strong></p>
+                    <p style="margin: 5px 0; color: #666;">Due Date: <strong>Feb 17th, 2026</strong></p>
                     <div style="font-size: 24px; font-weight: bold; color: #D4AF37; margin-top: 10px;">Score: ${percentScore}%</div>
                 </div>
 
@@ -128,7 +128,7 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         netlifyFormData.append('form-name', 'homework-grades'); // Must match the name of your hidden form
         netlifyFormData.append('student_name', answers.name || 'Anonymous');
         netlifyFormData.append('parent_email', answers.email || ''); // Capture email
-        netlifyFormData.append('due_date', "Feb 10th, 2026");
+        netlifyFormData.append('due_date', "Feb 17th, 2026");
         netlifyFormData.append('percent_score', percentScore);
         netlifyFormData.append('ai_feedback', aiFeedbackSummary);
         netlifyFormData.append('email_html_body', emailHtml); // <--- The full report
