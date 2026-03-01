@@ -13,6 +13,10 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         // Collect form data
         const formData = new FormData(e.target);
         const answers = {};
+        
+        // Get due date from the page
+        const dueDateElement = document.querySelector('.due-date');
+        const dueDate = dueDateElement ? dueDateElement.textContent.replace('Due: ', '').trim() : "Feb 17th, 2026";
 
         // Name validation: Must be at least two words
         const studentName = formData.get('name');
@@ -34,6 +38,9 @@ document.getElementById('homework-form').addEventListener('submit', async functi
                 answers[key] = value;
             }
         }
+
+        // Add due_date to answers so the backend knows which homework this is
+        answers.due_date = dueDate;
 
         // Ensure specific checkbox fields are arrays even if only one item is selected
         const arrayFields = [];
@@ -72,7 +79,7 @@ document.getElementById('homework-form').addEventListener('submit', async functi
                 
                 <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; text-align: center;">
                     <p style="margin: 5px 0; color: #666;">Student: <strong>${studentNameVal}</strong></p>
-                    <p style="margin: 5px 0; color: #666;">Due Date: <strong>Feb 17th, 2026</strong></p>
+                    <p style="margin: 5px 0; color: #666;">Due Date: <strong>${dueDate}</strong></p>
                     <div style="font-size: 24px; font-weight: bold; color: #D4AF37; margin-top: 10px;">Score: ${percentScore}%</div>
                 </div>
 
@@ -128,7 +135,7 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         netlifyFormData.append('form-name', 'homework-grades'); // Must match the name of your hidden form
         netlifyFormData.append('student_name', answers.name || 'Anonymous');
         netlifyFormData.append('parent_email', answers.email || ''); // Capture email
-        netlifyFormData.append('due_date', "Feb 17th, 2026");
+        netlifyFormData.append('due_date', dueDate);
         netlifyFormData.append('percent_score', percentScore);
         netlifyFormData.append('ai_feedback', aiFeedbackSummary);
         netlifyFormData.append('email_html_body', emailHtml); // <--- The full report

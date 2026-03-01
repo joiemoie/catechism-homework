@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moral Reasoning Assessment - Our Lady of Peace</title>
+    <title>Confirmation Homework - Our Lady of Peace</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -19,19 +19,21 @@
                 <p>I am your teacher, <strong>Joseph Liba</strong>, and I pray for all of you as you study and grow.</p>
             </div>
             <div class="meta-info">
-                <span class="badge">Homework: Moral Reasoning</span>
-                <span class="due-date">Due: Feb 17th, 2026</span>
+                <span class="badge">Homework: Virtues & Vocation</span>
+                <span class="due-date">Due: March 6th, 2026</span>
             </div>
-            <div style="margin-top: 1rem;">
-                <a href="week-12-homework.html" target="_blank" style="color: var(--secondary-color); font-family: var(--font-subheading); font-size: 0.8rem; text-decoration: none; border-bottom: 1px solid var(--accent-gold);">View Last Week's Homework</a>
-            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Current Homework</a>
+                <a href="week-13-homework.html" class="nav-link">Last Week</a>
+                <a href="week-12-homework.html" class="nav-link">Previous Weeks</a>
+            </nav>
         </header>
 
         <main>
             <section class="instructions">
                 <h3>Instructions</h3>
-                <p><strong>Reading:</strong> Please read <strong>pages 195-204</strong> in your Confirmation book before completing this assessment.</p>
-                <p>This homework focuses on the formation of conscience and moral decision making.</p>
+                <p><strong>Reading:</strong> Please read <strong>pages 205–214</strong> in your Confirmation book before completing this assessment.</p>
+                <p>This homework focuses on the Virtues, Vocation, and the Sacrament of Penance.</p>
                 <p class="points">Total points: 100</p>
             </section>
 
@@ -62,7 +64,7 @@
                 <input type="hidden" name="form-name" value="homework-grades" />
                 <input type="text" name="student_name" />
                 <input type="email" name="parent_email" />
-                <input type="text" name="due_date" value="Feb 17th, 2026" />
+                <input type="text" name="due_date" value="March 6th, 2026" />
                 <input type="number" name="percent_score" />
                 <textarea name="ai_feedback"></textarea>
                 <textarea name="email_html_body"></textarea>
@@ -82,209 +84,152 @@
                 </div>
 
                 <!-- ========================================== -->
-                <!-- SECTION I: FOUNDATIONS & PRECEPTS -->
+                <!-- SECTION I: THE VIRTUES -->
                 <!-- ========================================== -->
-                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin-bottom: 2rem;">Part I: Foundations & Precepts</h2>
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin-bottom: 2rem;">Part I: The Virtues</h2>
 
                 <!-- Q1 -->
                 <div class="form-group">
-                    <label>1. The universal call to holiness teaches that: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q1_holiness" value="A"> <span>A) Only clergy are called to perfection</span></label>
-                        <label class="option"><input type="radio" name="q1_holiness" value="B"> <span>B) Every baptized person is called to become holy</span></label>
-                        <label class="option"><input type="radio" name="q1_holiness" value="C"> <span>C) Holiness is optional for laypeople</span></label>
-                        <label class="option"><input type="radio" name="q1_holiness" value="D"> <span>D) Holiness is achieved automatically</span></label>
-                    </div>
+                    <label>1. Look at the section "The Virtues" on Page 205. How does the text specifically define a "virtue"? Please type out the definition found in the first paragraph. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q1_virtue_def" rows="3" placeholder="Type the definition..."></textarea>
                 </div>
 
                 <!-- Q2 -->
                 <div class="form-group">
-                    <label>2. Which of the following is a required precept of the Church? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>2. Which of the four "Cardinal Virtues" is described as helping us control our desire for worldly pleasure in a balanced way? (Page 205) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q2_precept" value="A"> <span>A) Pray the Rosary weekly</span></label>
-                        <label class="option"><input type="radio" name="q2_precept" value="B"> <span>B) Attend daily Mass</span></label>
-                        <label class="option"><input type="radio" name="q2_precept" value="C"> <span>C) Attend Mass on Sundays and holy days</span></label>
-                        <label class="option"><input type="radio" name="q2_precept" value="D"> <span>D) Perform monthly confession</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="A"> <span>A) Prudence</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="B"> <span>B) Justice</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="C"> <span>C) Fortitude</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="D"> <span>D) Temperance</span></label>
                     </div>
                 </div>
 
-                <!-- ========================================== -->
-                <!-- SECTION II: THE MORAL ACT -->
-                <!-- ========================================== -->
-                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part II: The Moral Act</h2>
-                <p style="text-align: center; font-style: italic; margin-bottom: 2rem;">Object • Intention • Circumstances</p>
-
                 <!-- Q3 -->
                 <div class="form-group">
-                    <label>3. The three elements of a moral act are: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q3_elements" value="A"> <span>A) Action, emotion, result</span></label>
-                        <label class="option"><input type="radio" name="q3_elements" value="B"> <span>B) Object, intention, circumstances</span></label>
-                        <label class="option"><input type="radio" name="q3_elements" value="C"> <span>C) Law, punishment, mercy</span></label>
-                        <label class="option"><input type="radio" name="q3_elements" value="D"> <span>D) Intention, outcome, culture</span></label>
-                    </div>
+                    <label>3. According to Page 205, there are three "Theological Virtues" that we receive at Baptism. Please type out the names of these three virtues. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <input type="text" name="q3_theological" placeholder="...">
                 </div>
 
                 <!-- Q4 -->
                 <div class="form-group">
-                    <label>4. If the object of an act is intrinsically evil: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>4. On Page 206, the text discusses "Mortification." What is the simplest definition of this word given in the reading? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q4_evil" value="A"> <span>A) A good intention can justify it</span></label>
-                        <label class="option"><input type="radio" name="q4_evil" value="B"> <span>B) Circumstances can make it good</span></label>
-                        <label class="option"><input type="radio" name="q4_evil" value="C"> <span>C) It cannot be made morally good</span></label>
-                        <label class="option"><input type="radio" name="q4_evil" value="D"> <span>D) It depends on the result</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="A"> <span>A) Intense prayer</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="B"> <span>B) Self-denial</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="C"> <span>C) Physical punishment</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="D"> <span>D) Studying scripture</span></label>
                     </div>
                 </div>
 
-                <!-- Q5: The Lever -->
+                <!-- Q5 -->
                 <div class="form-group">
-                    <label>5. Case Study A (The Lever): A runaway train is heading toward 5 people. You pull a lever to divert it, foreseeing it will kill 1 person on the side track. Why is this often considered permissible? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q5_lever" value="A"> <span>A) The end justifies the means</span></label>
-                        <label class="option"><input type="radio" name="q5_lever" value="B"> <span>B) The death of the one is not intended as the means, but is a foreseen side effect of saving the five</span></label>
-                        <label class="option"><input type="radio" name="q5_lever" value="C"> <span>C) One life has less value than five</span></label>
-                        <label class="option"><input type="radio" name="q5_lever" value="D"> <span>D) It is never permissible</span></label>
-                    </div>
-                </div>
-
-                <!-- Q6: The Bridge (Open) -->
-                <div class="form-group">
-                    <label>6. Case Study B (The Bridge): A runaway train is heading toward 5 people. A large man stands on a bridge. Pushing him would stop the train but kill him. Explain why this act is morally different from the Lever case (Q5), even though the math (1 dies, 5 live) is the same. Focus on the <em>means</em> used. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
-                    <textarea name="q6_bridge_open" rows="4" placeholder="Explain the moral difference..."></textarea>
-                </div>
-
-                <!-- Q7: The Bomb (Open) -->
-                <div class="form-group">
-                    <label>7. Case Study C (The Bomb): On August 9, 1945, General Leslie Groves and Allied leaders authorized the dropping of the "Fat Man" atomic bomb on Nagasaki, arguing it would end the war and save millions of lives. The bomb detonated over the Urakami district, wiping out 95% of Nagasaki's Christian population and killing tens of thousands of civilians instantly. Using the three elements of a moral act (Object, Intention, Circumstances), analyze why the Church teaches this is never permissible. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
-                    <textarea name="q7_bomb_open" rows="4" placeholder="Object: ... Intention: ... Why is it wrong?"></textarea>
-                </div>
-                
-                <!-- Q8 (Formerly Q5) -->
-                <div class="form-group">
-                    <label>8. Application: A student lies to their teacher about forgetting their homework to avoid the embarrassment of admitting they didn't do it. Identify: <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
-                    <div style="margin-top: 1rem;">
-                        <p style="margin-bottom: 0.5rem;"><strong>Object:</strong> (What is the act?)</p>
-                        <input type="text" name="q_app_object" placeholder="...">
-                        <p style="margin: 1rem 0 0.5rem 0;"><strong>Intention:</strong> (Why?)</p>
-                        <input type="text" name="q_app_intention" placeholder="...">
-                        <p style="margin: 1rem 0 0.5rem 0;"><strong>Circumstances:</strong> (Context?)</p>
-                        <input type="text" name="q_app_circumstances" placeholder="...">
-                    </div>
+                    <label>5. Reread the section "What is God Asking of You?" on Page 206. Based on where you are in your life right now, what do you think God is asking of you personally? <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q5_god_asking" rows="4" placeholder="Your thoughts..."></textarea>
                 </div>
 
                 <!-- ========================================== -->
-                <!-- SECTION III: CONSCIENCE & PRINCIPLES -->
+                <!-- SECTION II: VOCATION -->
                 <!-- ========================================== -->
-                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part III: Conscience & Principles</h2>
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part II: Vocation</h2>
+
+                <!-- Q6 -->
+                <div class="form-group">
+                    <label>6. The "Domestic Church" is another name for which vocation? (Page 207) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q6_domestic" value="A"> <span>A) The priesthood</span></label>
+                        <label class="option"><input type="radio" name="q6_domestic" value="B"> <span>B) The Christian family (Marriage)</span></label>
+                        <label class="option"><input type="radio" name="q6_domestic" value="C"> <span>C) The convent</span></label>
+                        <label class="option"><input type="radio" name="q6_domestic" value="D"> <span>D) The parish school</span></label>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="form-group">
+                    <label>7. What is "Discernment"? (Page 207) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q7_discernment" value="A"> <span>A) The process of prayerfully coming to understand what God is asking of you.</span></label>
+                        <label class="option"><input type="radio" name="q7_discernment" value="B"> <span>B) The vows taken by a monk or nun.</span></label>
+                        <label class="option"><input type="radio" name="q7_discernment" value="C"> <span>C) The ceremony where a priest is ordained.</span></label>
+                        <label class="option"><input type="radio" name="q7_discernment" value="D"> <span>D) The study of church history.</span></label>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="form-group">
+                    <label>8. Which of the following is NOT one of the "Evangelical Counsels" (vows) taken by those in the Consecrated Life? (Page 208) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q8_counsels" value="A"> <span>A) Poverty</span></label>
+                        <label class="option"><input type="radio" name="q8_counsels" value="B"> <span>B) Chastity</span></label>
+                        <label class="option"><input type="radio" name="q8_counsels" value="C"> <span>C) Silence</span></label>
+                        <label class="option"><input type="radio" name="q8_counsels" value="D"> <span>D) Obedience</span></label>
+                    </div>
+                </div>
 
                 <!-- Q9 -->
                 <div class="form-group">
-                    <label>9. Conscience is best described as: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>9. Which statement best describes the "Committed Single Life"? (Page 208) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q9_conscience" value="A"> <span>A) Personal opinion</span></label>
-                        <label class="option"><input type="radio" name="q9_conscience" value="B"> <span>B) Emotional instinct</span></label>
-                        <label class="option"><input type="radio" name="q9_conscience" value="C"> <span>C) The judgment of reason applying moral law</span></label>
-                        <label class="option"><input type="radio" name="q9_conscience" value="D"> <span>D) Majority agreement</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="A"> <span>A) It is a temporary state for people waiting to get married.</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="B"> <span>B) It requires living in a monastery or convent.</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="C"> <span>C) It allows a person the flexibility to devote time and resources to serving others and the Church.</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="D"> <span>D) It is not considered a path to holiness.</span></label>
                     </div>
                 </div>
 
                 <!-- Q10 -->
                 <div class="form-group">
-                    <label>10. A properly formed conscience requires: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>10. St. Josemaría Escrivá, featured on Page 210, founded an organization called Opus Dei. What does "Opus Dei" mean in English? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q10_formed" value="A"> <span>A) Following cultural trends</span></label>
-                        <label class="option"><input type="radio" name="q10_formed" value="B"> <span>B) Learning Church teaching and prayer</span></label>
-                        <label class="option"><input type="radio" name="q10_formed" value="C"> <span>C) Acting on sincerity alone</span></label>
-                        <label class="option"><input type="radio" name="q10_formed" value="D"> <span>D) Avoiding moral conflict</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="A"> <span>A) Work of God</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="B"> <span>B) Light of the World</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="C"> <span>C) Holy Spirit</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="D"> <span>D) Soldiers of Christ</span></label>
                     </div>
                 </div>
 
                 <!-- Q11 -->
                 <div class="form-group">
-                    <label>11. The principle “the end does not justify the means” means: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q11_end_means" value="A"> <span>A) Outcomes determine morality</span></label>
-                        <label class="option"><input type="radio" name="q11_end_means" value="B"> <span>B) One may do evil if the goal is good</span></label>
-                        <label class="option"><input type="radio" name="q11_end_means" value="C"> <span>C) One may never choose evil to achieve good</span></label>
-                        <label class="option"><input type="radio" name="q11_end_means" value="D"> <span>D) Intention alone determines morality</span></label>
-                    </div>
+                    <label>11. Read the "Witness of Christ" section on Page 210 about St. Josemaría Escrivá. What was the main message he taught to ordinary people (like lawyers, teachers, or students) about how to become holy? <span style="font-size: 0.8em; color: var(--text-light);">(15 points)</span></label>
+                    <textarea name="q11_escriva" rows="4" placeholder="The main message..."></textarea>
                 </div>
 
                 <!-- ========================================== -->
-                <!-- SECTION IV: SIN & COMMANDMENTS -->
+                <!-- SECTION III: SACRAMENT OF PENANCE -->
                 <!-- ========================================== -->
-                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part IV: Sin & Commandments</h2>
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part III: Sacrament of Penance</h2>
 
                 <!-- Q12 -->
                 <div class="form-group">
-                    <label>12. Christ fulfilled the Ten Commandments by: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>12. In the Sacrament of Penance, after you confess your sins, the priest asks you to say a prayer expressing your sorrow. What is this prayer called? (Page 210) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q12_christ" value="A"> <span>A) Abolishing them</span></label>
-                        <label class="option"><input type="radio" name="q12_christ" value="B"> <span>B) Limiting them</span></label>
-                        <label class="option"><input type="radio" name="q12_christ" value="C"> <span>C) Deepening them to include interior intentions</span></label>
-                        <label class="option"><input type="radio" name="q12_christ" value="D"> <span>D) Replacing them entirely</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="A"> <span>A) The Our Father</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="B"> <span>B) The Act of Contrition</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="C"> <span>C) The Hail Mary</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="D"> <span>D) The Glory Be</span></label>
                     </div>
                 </div>
 
                 <!-- Q13 -->
                 <div class="form-group">
-                    <label>13. A sin of omission is: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>13. When receiving the Sacrament of Penance (Confession), what is the very first thing you should do after entering the confessional or reconciliation room? (Page 212) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q13_omission" value="A"> <span>A) Choosing something evil</span></label>
-                        <label class="option"><input type="radio" name="q13_omission" value="B"> <span>B) Failing to do a required good</span></label>
-                        <label class="option"><input type="radio" name="q13_omission" value="C"> <span>C) Acting without thinking</span></label>
-                        <label class="option"><input type="radio" name="q13_omission" value="D"> <span>D) Breaking civil law</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="A"> <span>A) Recite your sins immediately.</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="B"> <span>B) Make the Sign of the Cross and tell the priest how long it has been since your last confession.</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="C"> <span>C) Ask the priest for a blessing.</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="D"> <span>D) Say the Act of Contrition.</span></label>
                     </div>
                 </div>
 
                 <!-- Q14 -->
                 <div class="form-group">
-                    <label>14. Venial sin: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <label>14. Which virtue is described on Page 205 as "strengthening us to choose good and resist evil in every situation," especially during trials? <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
                     <div class="radio-group">
-                        <label class="option"><input type="radio" name="q14_venial" value="A"> <span>A) Destroys charity in the soul</span></label>
-                        <label class="option"><input type="radio" name="q14_venial" value="B"> <span>B) Has no effect</span></label>
-                        <label class="option"><input type="radio" name="q14_venial" value="C"> <span>C) Weakens communion with God</span></label>
-                        <label class="option"><input type="radio" name="q14_venial" value="D"> <span>D) Is always grave matter</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="A"> <span>A) Fortitude</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="B"> <span>B) Hope</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="C"> <span>C) Charity</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="D"> <span>D) Prudence</span></label>
                     </div>
-                </div>
-
-                <!-- Q15 -->
-                <div class="form-group">
-                    <label>15. Mortal sin requires: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q15_mortal" value="A"> <span>A) Grave matter only</span></label>
-                        <label class="option"><input type="radio" name="q15_mortal" value="B"> <span>B) Grave matter and emotion</span></label>
-                        <label class="option"><input type="radio" name="q15_mortal" value="C"> <span>C) Grave matter, full knowledge, and full consent</span></label>
-                        <label class="option"><input type="radio" name="q15_mortal" value="D"> <span>D) Serious consequences</span></label>
-                    </div>
-                </div>
-
-                 <!-- Q16 -->
-                 <div class="form-group">
-                    <label>16. The Sacrament of Penance restores: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q16_penance" value="A"> <span>A) Social reputation</span></label>
-                        <label class="option"><input type="radio" name="q16_penance" value="B"> <span>B) Physical healing</span></label>
-                        <label class="option"><input type="radio" name="q16_penance" value="C"> <span>C) Grace and communion with God</span></label>
-                        <label class="option"><input type="radio" name="q16_penance" value="D"> <span>D) Emotional relief only</span></label>
-                    </div>
-                </div>
-
-                <!-- Q17 Case Study (MC) -->
-                <div class="form-group">
-                    <label>17. Case Study (The Silent Friend): You witness someone being bullied. You have authority to intervene, but you stay silent to avoid conflict. This is an example of: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <div class="radio-group">
-                        <label class="option"><input type="radio" name="q17_silent_friend_mc" value="A"> <span>A) A Sin of Commission</span></label>
-                        <label class="option"><input type="radio" name="q17_silent_friend_mc" value="B"> <span>B) A Sin of Omission</span></label>
-                        <label class="option"><input type="radio" name="q17_silent_friend_mc" value="C"> <span>C) Invincible Ignorance</span></label>
-                        <label class="option"><input type="radio" name="q17_silent_friend_mc" value="D"> <span>D) The Principle of Double Effect</span></label>
-                    </div>
-                </div>
-
-                <!-- Final Reflection -->
-                <div class="form-group">
-                    <label>18. Final Reflection: When do people most often justify evil by appealing to good outcomes? Why is this temptation so powerful? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
-                    <textarea name="q18_final_reflection" rows="3" placeholder="Your thoughts (2-3 sentences)..."></textarea>
                 </div>
 
                 <div class="form-actions">

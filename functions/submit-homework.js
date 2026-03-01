@@ -8,9 +8,10 @@ exports.handler = async (event, context) => {
 
   const body = JSON.parse(event.body);
   const userAnswers = body.answers || {};
+  const dueDate = userAnswers.due_date || "Feb 17th, 2026";
   
   // Debug: Log received answers to the terminal
-  console.log("Received submission:", JSON.stringify(userAnswers, null, 2));
+  console.log(`Received submission for ${dueDate}:`, JSON.stringify(userAnswers, null, 2));
   
   // --- Configuration ---
   const API_KEY = process.env.GEMINI_API_KEY;
@@ -37,29 +38,53 @@ exports.handler = async (event, context) => {
   }
 
   // --- Answer Key & Rubric ---
-  const questions = [
-    { id: "q1_holiness", type: "radio", points: 5, correct: "B", text: "1. The universal call to holiness teaches that:" },
-    { id: "q2_precept", type: "radio", points: 5, correct: "C", text: "2. Which of the following is a required precept of the Church?" },
-    { id: "q3_elements", type: "radio", points: 5, correct: "B", text: "3. The three elements of a moral act are:" },
-    { id: "q4_evil", type: "radio", points: 5, correct: "C", text: "4. If the object of an act is intrinsically evil:" },
-    { id: "q5_lever", type: "radio", points: 5, correct: "B", text: "5. Case Study A (The Lever): Why is this considered permissible?" },
-    { id: "q6_bridge_open", type: "open", points: 10, text: "6. Case Study B (The Bridge): Explain moral difference from Lever (Means)." },
-    { id: "q7_bomb_open", type: "open", points: 10, text: "7. Case Study C (Nagasaki): Analyze General Groves/Fat Man bomb using moral elements." },
-    { id: "q_app_combined", type: "open", points: 10, text: "8. Application (Lies to teacher): Identify Object, Intention, Circumstances." },
-    { id: "q9_conscience", type: "radio", points: 5, correct: "C", text: "9. Conscience is best described as:" },
-    { id: "q10_formed", type: "radio", points: 5, correct: "B", text: "10. A properly formed conscience requires:" },
-    { id: "q11_end_means", type: "radio", points: 5, correct: "C", text: "11. The principle 'the end does not justify the means' means:" },
-    { id: "q12_christ", type: "radio", points: 5, correct: "C", text: "12. Christ fulfilled the Ten Commandments by:" },
-    { id: "q13_omission", type: "radio", points: 5, correct: "B", text: "13. A sin of omission is:" },
-    { id: "q14_venial", type: "radio", points: 5, correct: "C", text: "14. Venial sin:" },
-    { id: "q15_mortal", type: "radio", points: 5, correct: "C", text: "15. Mortal sin requires:" },
-    { id: "q16_penance", type: "radio", points: 5, correct: "C", text: "16. The Sacrament of Penance restores:" },
-    { id: "q17_silent_friend_mc", type: "radio", points: 5, correct: "B", text: "17. Case Study (The Silent Friend): This is an example of:" },
-    { id: "q18_final_reflection", type: "open", points: 5, text: "18. Final Reflection: Justifying evil by good outcomes." }
-  ];
+  let questions = [];
 
-  // Map individual fields to combined questions if necessary
-  userAnswers.q_app_combined = `Object: ${userAnswers.q_app_object || 'N/A'}, Intention: ${userAnswers.q_app_intention || 'N/A'}, Circumstances: ${userAnswers.q_app_circumstances || 'N/A'}`;
+  if (dueDate === "March 6th, 2026") {
+    questions = [
+      { id: "q1_virtue_def", type: "open", points: 10, text: "1. Look at the section 'The Virtues' on Page 205. How does the text specifically define a 'virtue'?" },
+      { id: "q2_cardinal", type: "radio", points: 5, correct: "D", text: "2. Which of the four 'Cardinal Virtues' is described as helping us control our desire for worldly pleasure in a balanced way?" },
+      { id: "q3_theological", type: "open", points: 10, text: "3. According to Page 205, there are three 'Theological Virtues' that we receive at Baptism. Please type out the names of these three virtues." },
+      { id: "q4_mortification", type: "radio", points: 5, correct: "B", text: "4. On Page 206, the text discusses 'Mortification.' What is the simplest definition of this word given in the reading?" },
+      { id: "q5_god_asking", type: "open", points: 10, text: "5. Reread the section 'What is God Asking of You?' on Page 206. Based on where you are in your life right now, what do you think God is asking of you personally?" },
+      { id: "q6_domestic", type: "radio", points: 5, correct: "B", text: "6. The 'Domestic Church' is another name for which vocation?" },
+      { id: "q7_discernment", type: "radio", points: 5, correct: "A", text: "7. What is 'Discernment'?" },
+      { id: "q8_counsels", type: "radio", points: 5, correct: "C", text: "8. Which of the following is NOT one of the 'Evangelical Counsels' (vows) taken by those in the Consecrated Life?" },
+      { id: "q9_single", type: "radio", points: 5, correct: "C", text: "9. Which statement best describes the 'Committed Single Life'?" },
+      { id: "q10_opus", type: "radio", points: 5, correct: "A", text: "10. St. Josemaría Escrivá, featured on Page 210, founded an organization called Opus Dei. What does 'Opus Dei' mean in English?" },
+      { id: "q11_escriva", type: "open", points: 15, text: "11. Read the 'Witness of Christ' section on Page 210 about St. Josemaría Escrivá. What was the main message he taught to ordinary people about how to become holy?" },
+      { id: "q12_prayer", type: "radio", points: 5, correct: "B", text: "12. In the Sacrament of Penance, after you confess your sins, the priest asks you to say a prayer expressing your sorrow. What is this prayer called?" },
+      { id: "q13_confession", type: "radio", points: 5, correct: "B", text: "13. When receiving the Sacrament of Penance (Confession), what is the very first thing you should do after entering the confessional or reconciliation room?" },
+      { id: "q14_fortitude", type: "radio", points: 10, correct: "A", text: "14. Which virtue is described on Page 205 as 'strengthening us to choose good and resist evil in every situation,' especially during trials?" }
+    ];
+  } else {
+    // Default to the Moral Reasoning homework (Feb 17th)
+    questions = [
+      { id: "q1_holiness", type: "radio", points: 5, correct: "B", text: "1. The universal call to holiness teaches that:" },
+      { id: "q2_precept", type: "radio", points: 5, correct: "C", text: "2. Which of the following is a required precept of the Church?" },
+      { id: "q3_elements", type: "radio", points: 5, correct: "B", text: "3. The three elements of a moral act are:" },
+      { id: "q4_evil", type: "radio", points: 5, correct: "C", text: "4. If the object of an act is intrinsically evil:" },
+      { id: "q5_lever", type: "radio", points: 5, correct: "B", text: "5. Case Study A (The Lever): Why is this considered permissible?" },
+      { id: "q6_bridge_open", type: "open", points: 10, text: "6. Case Study B (The Bridge): Explain moral difference from Lever (Means)." },
+      { id: "q7_bomb_open", type: "open", points: 10, text: "7. Case Study C (Nagasaki): Analyze General Groves/Fat Man bomb using moral elements." },
+      { id: "q_app_combined", type: "open", points: 10, text: "8. Application (Lies to teacher): Identify Object, Intention, Circumstances." },
+      { id: "q9_conscience", type: "radio", points: 5, correct: "C", text: "9. Conscience is best described as:" },
+      { id: "q10_formed", type: "radio", points: 5, correct: "B", text: "10. A properly formed conscience requires:" },
+      { id: "q11_end_means", type: "radio", points: 5, correct: "C", text: "11. The principle 'the end does not justify the means' means:" },
+      { id: "q12_christ", type: "radio", points: 5, correct: "C", text: "12. Christ fulfilled the Ten Commandments by:" },
+      { id: "q13_omission", type: "radio", points: 5, correct: "B", text: "13. A sin of omission is:" },
+      { id: "q14_venial", type: "radio", points: 5, correct: "C", text: "14. Venial sin:" },
+      { id: "q15_mortal", type: "radio", points: 5, correct: "C", text: "15. Mortal sin requires:" },
+      { id: "q16_penance", type: "radio", points: 5, correct: "C", text: "16. The Sacrament of Penance restores:" },
+      { id: "q17_silent_friend_mc", type: "radio", points: 5, correct: "B", text: "17. Case Study (The Silent Friend): This is an example of:" },
+      { id: "q18_final_reflection", type: "open", points: 5, text: "18. Final Reflection: Justifying evil by good outcomes." }
+    ];
+    
+    // Map individual fields to combined questions if necessary for Feb 17th homework
+    if (userAnswers.q_app_object) {
+      userAnswers.q_app_combined = `Object: ${userAnswers.q_app_object || 'N/A'}, Intention: ${userAnswers.q_app_intention || 'N/A'}, Circumstances: ${userAnswers.q_app_circumstances || 'N/A'}`;
+    }
+  }
 
   let totalScore = 0;
   let maxScore = 0;
@@ -129,7 +154,7 @@ exports.handler = async (event, context) => {
   const objectiveResults = results.filter(r => !r.needsAi);
 
   const promptText = `
-    You are a Catholic theology teacher grading a Confirmation Moral Reasoning Assessment.
+    You are a Catholic theology teacher grading a Confirmation Assessment for ${dueDate}.
     
     TASK 1: Grade the following ${openQuestions.length} open-ended student answers.
     For each answer, provide:
@@ -140,7 +165,7 @@ exports.handler = async (event, context) => {
     TASK 2: Provide a "Holistic Feedback" summary for the student.
     - Review the "Objective Results" (Multiple Choice) provided below to see what they got Right/Wrong.
     - Review their Open-Ended answers.
-    - Write a short paragraph (3-4 sentences) addressing the student directly. Praise their moral reasoning where it is sound, and gently correct any consequentialist errors (e.g., "the end justifies the means"). Be encouraging!
+    - Write a short paragraph (3-4 sentences) addressing the student directly. Praise their moral reasoning where it is sound, and gently correct any errors. Be encouraging!
 
     --- DATA ---
     
