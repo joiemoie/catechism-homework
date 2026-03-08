@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debate Karl Marx</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Override to hide character select and fit inside iframe */
+        #start-screen { display: none !important; }
+        body { height: 100vh; overflow: hidden; }
+        #game-container { max-height: 100vh; }
+        #game-over-screen button { cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <header>
+            <h1>Debate Karl Marx</h1>
+            <div id="stats-bar">
+                <div class="stat">
+                    <span>Credibility:</span>
+                    <div class="health-bar-container">
+                        <div id="credibility-bar" class="health-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+                <div class="stat">
+                    <span>Marx's Resolve:</span>
+                    <div class="health-bar-container">
+                        <div id="resolve-bar" class="health-bar" style="width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main id="main-area">
+            <div id="start-screen" class="screen">
+                <!-- Hidden, auto-starts with Marx -->
+            </div>
+
+            <div id="game-screen" class="screen hidden">
+                <div id="opponent-area">
+                    <div id="opponent-portrait" class="portrait"></div>
+                    <div class="bubble opponent-bubble">
+                        <p id="opponent-text">...</p>
+                    </div>
+                </div>
+
+                <div id="player-thought" class="thought-bubble hidden"></div>
+                <div id="player-area">
+                    <div id="choices-container">
+                        <!-- Buttons injected by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="screen hidden">
+                <h2 id="game-over-title">Game Over</h2>
+                <p id="game-over-message"></p>
+                <button onclick="startGame('marx')">Try Again</button>
+            </div>
+        </main>
+    </div>
+    <script src="scenarios.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Auto-start with Karl Marx
+        startGame('marx');
+    </script>
+</body>
+</html>
