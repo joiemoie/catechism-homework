@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Week 14 Homework - Our Lady of Peace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Lady of Peace</h1>
+            <h2>Confirmation Catechism</h2>
+            <div style="margin-top: 1rem; font-style: italic; color: var(--text-light); font-size: 0.95rem;">
+                <p>This website is my personal creation for the <strong>Confirmation II Boy's Class</strong>.</p>
+                <p>I am your teacher, <strong>Joseph Liba</strong>, and I pray for all of you as you study and grow.</p>
+            </div>
+            <div class="meta-info">
+                <span class="badge">Homework: Virtues & Vocation</span>
+                <span class="due-date">Due: March 6th, 2026</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Current Homework</a>
+                <a href="week-14-homework.html" class="nav-link active">Last Week</a>
+                <a href="week-13-homework.html" class="nav-link">Week 13</a>
+                <a href="week-12-homework.html" class="nav-link">Previous Weeks</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <p><strong>Reading:</strong> Please read <strong>pages 205–214</strong> in your Confirmation book before completing this assessment.</p>
+                <p>This homework focuses on the Virtues, Vocation, and the Sacrament of Penance.</p>
+                <p class="points">Total points: 100</p>
+            </section>
+
+            <!-- Results Container (Hidden by default) -->
+            <div id="results-area" style="display: none;">
+                <div class="success-message">
+                    <div class="success-icon">✓</div>
+                    <h2>Assessment Submitted!</h2>
+                    <p>Your responses have been graded.</p>
+                    <div class="score-card" style="margin: 2rem 0; padding: 2rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold);">
+                        <h3 style="font-size: 2rem; color: var(--primary-color);">Score: <span id="final-score">--</span> / <span id="max-score">--</span></h3>
+                    </div>
+                </div>
+                <div id="detailed-results"></div>
+                <div class="form-actions">
+                    <a href="index.html" class="submit-btn" style="text-decoration: none;">Start Over</a>
+                </div>
+            </div>
+
+            <!-- Loading Indicator (Hidden by default) -->
+            <div id="loading-indicator" style="display: none; text-align: center; padding: 4rem;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary-color);">Grading with AI...</h3>
+                <p>Please wait while we analyze your reasoning.</p>
+            </div>
+
+            <!-- Hidden Netlify Form for Data Capture -->
+            <form name="homework-grades" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="hidden" name="form-name" value="homework-grades" />
+                <input type="text" name="student_name" />
+                <input type="email" name="parent_email" />
+                <input type="text" name="due_date" value="March 6th, 2026" />
+                <input type="number" name="percent_score" />
+                <textarea name="ai_feedback"></textarea>
+                <textarea name="email_html_body"></textarea>
+            </form>
+
+            <form id="homework-form">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" name="name" required placeholder="First and Last Name">
+                </div>
+
+                <!-- Parent Email -->
+                <div class="form-group">
+                    <label for="email">Parent's Email (for results)</label>
+                    <input type="email" id="email" name="email" required placeholder="parent@example.com">
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SECTION I: THE VIRTUES -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin-bottom: 2rem;">Part I: The Virtues</h2>
+
+                <!-- Q1 -->
+                <div class="form-group">
+                    <label>1. Look at the section "The Virtues" on Page 205. How does the text specifically define a "virtue"? Please type out the definition found in the first paragraph. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q1_virtue_def" rows="3" placeholder="Type the definition..."></textarea>
+                </div>
+
+                <!-- Q2 -->
+                <div class="form-group">
+                    <label>2. Which of the four "Cardinal Virtues" is described as helping us control our desire for worldly pleasure in a balanced way? (Page 205) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q2_cardinal" value="A"> <span>A) Prudence</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="B"> <span>B) Justice</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="C"> <span>C) Fortitude</span></label>
+                        <label class="option"><input type="radio" name="q2_cardinal" value="D"> <span>D) Temperance</span></label>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="form-group">
+                    <label>3. According to Page 205, there are three "Theological Virtues" that we receive at Baptism. Please type out the names of these three virtues. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <input type="text" name="q3_theological" placeholder="...">
+                </div>
+
+                <!-- Q4 -->
+                <div class="form-group">
+                    <label>4. On Page 206, the text discusses "Mortification." What is the simplest definition of this word given in the reading? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q4_mortification" value="A"> <span>A) Intense prayer</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="B"> <span>B) Self-denial</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="C"> <span>C) Physical punishment</span></label>
+                        <label class="option"><input type="radio" name="q4_mortification" value="D"> <span>D) Studying scripture</span></label>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="form-group">
+                    <label>5. Reread the section "What is God Asking of You?" on Page 206. Based on where you are in your life right now, what do you think God is asking of you personally? <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q5_god_asking" rows="4" placeholder="Your thoughts..."></textarea>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SECTION II: VOCATION -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part II: Vocation</h2>
+
+                <!-- Q6 -->
+                <div class="form-group">
+                    <label>6. The "Domestic Church" is another name for which vocation? (Page 207) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q6_domestic" value="A"> <span>A) The priesthood</span></label>
+                        <label class="option"><input type="radio" name="q6_domestic" value="B"> <span>B) The Christian family (Marriage)</span></label>
+                        <label class="option"><input type="radio" name="q6_domestic" value="C"> <span>C) The convent</span></label>
+                        <label class="option"><input type="radio" name="q6_domestic" value="D"> <span>D) The parish school</span></label>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="form-group">
+                    <label>7. What is "Discernment"? (Page 207) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q7_discernment" value="A"> <span>A) The process of prayerfully coming to understand what God is asking of you.</span></label>
+                        <label class="option"><input type="radio" name="q7_discernment" value="B"> <span>B) The vows taken by a monk or nun.</span></label>
+                        <label class="option"><input type="radio" name="q7_discernment" value="C"> <span>C) The ceremony where a priest is ordained.</span></label>
+                        <label class="option"><input type="radio" name="q7_discernment" value="D"> <span>D) The study of church history.</span></label>
+                    </div>
+                </div>
+
+                <!-- Q8 -->
+                <div class="form-group">
+                    <label>8. Which of the following is NOT one of the "Evangelical Counsels" (vows) taken by those in the Consecrated Life? (Page 208) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q8_counsels" value="A"> <span>A) Poverty</span></label>
+                        <label class="option"><input type="radio" name="q8_counsels" value="B"> <span>B) Chastity</span></label>
+                        <label class="option"><input type="radio" name="q8_counsels" value="C"> <span>C) Silence</span></label>
+                        <label class="option"><input type="radio" name="q8_counsels" value="D"> <span>D) Obedience</span></label>
+                    </div>
+                </div>
+
+                <!-- Q9 -->
+                <div class="form-group">
+                    <label>9. Which statement best describes the "Committed Single Life"? (Page 208) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q9_single" value="A"> <span>A) It is a temporary state for people waiting to get married.</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="B"> <span>B) It requires living in a monastery or convent.</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="C"> <span>C) It allows a person the flexibility to devote time and resources to serving others and the Church.</span></label>
+                        <label class="option"><input type="radio" name="q9_single" value="D"> <span>D) It is not considered a path to holiness.</span></label>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="form-group">
+                    <label>10. St. Josemaría Escrivá, featured on Page 210, founded an organization called Opus Dei. What does "Opus Dei" mean in English? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q10_opus" value="A"> <span>A) Work of God</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="B"> <span>B) Light of the World</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="C"> <span>C) Holy Spirit</span></label>
+                        <label class="option"><input type="radio" name="q10_opus" value="D"> <span>D) Soldiers of Christ</span></label>
+                    </div>
+                </div>
+
+                <!-- Q11 -->
+                <div class="form-group">
+                    <label>11. Read the "Witness of Christ" section on Page 210 about St. Josemaría Escrivá. What was the main message he taught to ordinary people (like lawyers, teachers, or students) about how to become holy? <span style="font-size: 0.8em; color: var(--text-light);">(15 points)</span></label>
+                    <textarea name="q11_escriva" rows="4" placeholder="The main message..."></textarea>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- SECTION III: SACRAMENT OF PENANCE -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part III: Sacrament of Penance</h2>
+
+                <!-- Q12 -->
+                <div class="form-group">
+                    <label>12. In the Sacrament of Penance, after you confess your sins, the priest asks you to say a prayer expressing your sorrow. What is this prayer called? (Page 210) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q12_prayer" value="A"> <span>A) The Our Father</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="B"> <span>B) The Act of Contrition</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="C"> <span>C) The Hail Mary</span></label>
+                        <label class="option"><input type="radio" name="q12_prayer" value="D"> <span>D) The Glory Be</span></label>
+                    </div>
+                </div>
+
+                <!-- Q13 -->
+                <div class="form-group">
+                    <label>13. When receiving the Sacrament of Penance (Confession), what is the very first thing you should do after entering the confessional or reconciliation room? (Page 212) <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q13_confession" value="A"> <span>A) Recite your sins immediately.</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="B"> <span>B) Make the Sign of the Cross and tell the priest how long it has been since your last confession.</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="C"> <span>C) Ask the priest for a blessing.</span></label>
+                        <label class="option"><input type="radio" name="q13_confession" value="D"> <span>D) Say the Act of Contrition.</span></label>
+                    </div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="form-group">
+                    <label>14. Which virtue is described on Page 205 as "strengthening us to choose good and resist evil in every situation," especially during trials? <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q14_fortitude" value="A"> <span>A) Fortitude</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="B"> <span>B) Hope</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="C"> <span>C) Charity</span></label>
+                        <label class="option"><input type="radio" name="q14_fortitude" value="D"> <span>D) Prudence</span></label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Assessment</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Our Lady of Peace Catechism Program</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

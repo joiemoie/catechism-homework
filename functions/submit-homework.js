@@ -40,7 +40,25 @@ exports.handler = async (event, context) => {
   // --- Answer Key & Rubric ---
   let questions = [];
 
-  if (dueDate === "March 6th, 2026") {
+  if (dueDate === "March 12th, 2026") {
+    questions = [
+      { id: "q1_evangelization_def", type: "open", points: 7.5, text: "1. Write the definition of evangelization given in the chapter." },
+      { id: "q2_commission_mc", type: "radio", points: 5, correct: "B", text: "2. The Great Commission refers to Christ’s command that the Apostles:" },
+      { id: "q3_essential_open", type: "open", points: 7.5, text: "3. According to the chapter, why is evangelization considered essential to the Catholic faith rather than optional?" },
+      { id: "q4_new_evangelization_mc", type: "radio", points: 5, correct: "B", text: "4. The New Evangelization is primarily directed toward:" },
+      { id: "q5_apologetics_open", type: "open", points: 7.5, text: "5. What is apologetics?" },
+      { id: "q6_acts8_mc", type: "radio", points: 5, correct: "B", text: "6. In the story from Acts 8, Philip evangelizes the Ethiopian by:" },
+      { id: "q7_witness_open", type: "open", points: 7.5, text: "7. Name two ways that a Catholic can witness to Christ in everyday life according to the chapter." },
+      { id: "q8_commission_quote_open", type: "open", points: 7.5, text: "8. What is the Great Commission? Write Christ’s command in your own words or quote Matthew 28:18–20." },
+      { id: "q9_confirmation_mc", type: "radio", points: 5, correct: "B", text: "9. According to the chapter, Confirmation strengthens Christians in order to:" },
+      { id: "q10_aspects_open", type: "open", points: 7.5, text: "10. List the four main aspects of evangelization described in the chapter." },
+      { id: "q11_xavier_mc", type: "radio", points: 5, correct: "C", text: "11. St. Francis Xavier is remembered primarily for:" },
+      { id: "q12_equivocation_def", type: "open", points: 7.5, text: "12. What is equivocation? Write a definition in your own words." },
+      { id: "q13_love_is_love_open", type: "open", points: 7.5, text: "13. In modern culture people often say: 'Love is love.' What do they mean and what is the error?" },
+      { id: "q14_living_faith_importance_open", type: "open", points: 7.5, text: "14. According to the chapter, why is living your faith important when trying to evangelize others?" },
+      { id: "q15_elements_practice_teen_open", type: "open", points: 7.5, text: "15. Choose one of know/live/share/defend and explain how a Catholic teenager could practice it." }
+    ];
+  } else if (dueDate === "March 6th, 2026") {
     questions = [
       { id: "q1_virtue_def", type: "open", points: 10, text: "1. Look at the section 'The Virtues' on Page 205. How does the text specifically define a 'virtue'?" },
       { id: "q2_cardinal", type: "radio", points: 5, correct: "D", text: "2. Which of the four 'Cardinal Virtues' is described as helping us control our desire for worldly pleasure in a balanced way?" },
