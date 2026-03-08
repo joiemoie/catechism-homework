@@ -20,9 +20,9 @@ document.getElementById('homework-form').addEventListener('submit', async functi
 
         // Debate game check: must have beaten Karl Marx
         if (!localStorage.getItem('marxDefeated')) {
-            alert('You must defeat Karl Marx in the Debate Game before submitting this homework. Click the "Debate Game" tab to play!');
             form.style.display = 'block';
             loading.style.display = 'none';
+            showMarxModal();
             return;
         }
 
@@ -236,3 +236,34 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         alert('There was an error submitting your homework. Please try again. \n\nDetails: ' + error.message);
     }
 });
+
+function showMarxModal() {
+    const modal = document.getElementById('marx-modal');
+    const card = document.getElementById('marx-modal-card');
+    const btn = document.getElementById('marx-modal-btn');
+
+    modal.style.display = 'flex';
+    // Trigger animation next frame
+    requestAnimationFrame(() => {
+        card.style.transform = 'scale(1)';
+        card.style.opacity = '1';
+    });
+
+    btn.onmouseenter = () => { btn.style.transform = 'translate(-2px,-2px)'; btn.style.boxShadow = '6px 6px 0 #000'; };
+    btn.onmouseleave = () => { btn.style.transform = ''; btn.style.boxShadow = '4px 4px 0 #000'; };
+
+    btn.onclick = () => {
+        card.style.transform = 'scale(0.9)';
+        card.style.opacity = '0';
+        setTimeout(() => { window.location.href = 'debate-game.html'; }, 300);
+    };
+
+    // Close on backdrop click
+    modal.onclick = (e) => {
+        if (e.target === modal) {
+            card.style.transform = 'scale(0)';
+            card.style.opacity = '0';
+            setTimeout(() => { modal.style.display = 'none'; }, 300);
+        }
+    };
+}
