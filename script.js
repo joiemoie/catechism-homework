@@ -237,6 +237,38 @@ document.getElementById('homework-form').addEventListener('submit', async functi
     }
 });
 
+function saveFormProgress() {
+    const form = document.getElementById('homework-form');
+    const data = {};
+    form.querySelectorAll('input, textarea, select').forEach(el => {
+        if (!el.name) return;
+        if (el.type === 'radio') {
+            if (el.checked) data[el.name] = el.value;
+        } else {
+            data[el.name] = el.value;
+        }
+    });
+    localStorage.setItem('homeworkProgress', JSON.stringify(data));
+}
+
+function restoreFormProgress() {
+    const saved = localStorage.getItem('homeworkProgress');
+    if (!saved) return;
+    const data = JSON.parse(saved);
+    const form = document.getElementById('homework-form');
+    form.querySelectorAll('input, textarea, select').forEach(el => {
+        if (!el.name || !(el.name in data)) return;
+        if (el.type === 'radio') {
+            el.checked = el.value === data[el.name];
+        } else {
+            el.value = data[el.name];
+        }
+    });
+}
+
+// Restore progress on page load
+restoreFormProgress();
+
 function showMarxModal() {
     const modal = document.getElementById('marx-modal');
     const card = document.getElementById('marx-modal-card');
@@ -253,6 +285,7 @@ function showMarxModal() {
     btn.onmouseleave = () => { btn.style.transform = ''; btn.style.boxShadow = '4px 4px 0 #000'; };
 
     btn.onclick = () => {
+        saveFormProgress();
         card.style.transform = 'scale(0.9)';
         card.style.opacity = '0';
         setTimeout(() => { window.location.href = 'debate-game.html'; }, 300);

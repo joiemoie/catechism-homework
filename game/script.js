@@ -165,6 +165,7 @@ function endGame(won) {
         gameOverTitle.innerText = "DEBATE WON!";
         gameOverTitle.style.color = "#2ecc71";
         gameOverMessage.innerText = `You have successfully dismantled ${currentScenario.name}'s dialectic. The logic of your argument was undeniable.`;
+        document.getElementById('return-btn').style.display = 'inline-block';
     } else {
         gameOverTitle.innerText = "DEBATE LOST";
         gameOverTitle.style.color = "#e74c3c";
