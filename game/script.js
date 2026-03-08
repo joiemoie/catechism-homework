@@ -161,6 +161,7 @@ function endGame(won) {
     gameOverScreen.classList.remove('hidden');
 
     if (won) {
+        localStorage.setItem('marxDefeated', 'true');
         gameOverTitle.innerText = "DEBATE WON!";
         gameOverTitle.style.color = "#2ecc71";
         gameOverMessage.innerText = `You have successfully dismantled ${currentScenario.name}'s dialectic. The logic of your argument was undeniable.`;
