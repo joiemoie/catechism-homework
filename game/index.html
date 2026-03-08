@@ -67,6 +67,15 @@
     <script>
         // Auto-start with Karl Marx
         startGame('marx');
+
+        // Patch endGame to set localStorage flag on win
+        const _origEndGame = endGame;
+        function endGame(won) {
+            if (won) {
+                localStorage.setItem('marxDefeated', 'true');
+            }
+            _origEndGame(won);
+        }
     </script>
 </body>
 </html>

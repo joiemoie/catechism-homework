@@ -18,6 +18,14 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         const dueDateElement = document.querySelector('.due-date');
         const dueDate = dueDateElement ? dueDateElement.textContent.replace('Due: ', '').trim() : "Feb 17th, 2026";
 
+        // Debate game check: must have beaten Karl Marx
+        if (!localStorage.getItem('marxDefeated')) {
+            alert('You must defeat Karl Marx in the Debate Game before submitting this homework. Click the "Debate Game" tab to play!');
+            form.style.display = 'block';
+            loading.style.display = 'none';
+            return;
+        }
+
         // Name validation: Must be at least two words
         const studentName = formData.get('name');
         if (!studentName || studentName.trim().split(' ').filter(s => s !== '').length < 2) {
