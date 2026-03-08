@@ -40,7 +40,7 @@ exports.handler = async (event, context) => {
   // --- Answer Key & Rubric ---
   let questions = [];
 
-  if (dueDate === "March 12th, 2026") {
+  if (dueDate === "March 17th, 2026") {
     questions = [
       { id: "q1_evangelization_def", type: "open", points: 7.5, text: "1. Write the definition of evangelization given in the chapter." },
       { id: "q2_commission_mc", type: "radio", points: 5, correct: "B", text: "2. The Great Commission refers to Christ’s command that the Apostles:" },
