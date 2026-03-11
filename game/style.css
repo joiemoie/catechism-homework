@@ -26,14 +26,13 @@ body {
     width: 100%;
     max-width: 900px;
     height: 100%;
-    max-height: 700px;
     background: #34495e;
     border: 4px solid #000;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 30px rgba(0,0,0,0.6);
     position: relative;
-    overflow: auto; /* For shakes */
+    overflow: hidden;
 }
 
 /* Animations */
@@ -195,13 +194,15 @@ h1 {
 }
 
 #opponent-area {
-    flex-grow: 1;
+    flex: 1 1 0;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     padding-top: 20px;
+    overflow-y: auto;
 }
 
 #opponent-portrait {
@@ -257,6 +258,8 @@ h1 {
     padding: 20px;
     box-sizing: border-box;
     border-top: 2px solid rgba(255,255,255,0.1);
+    flex-shrink: 0;
+    overflow-y: auto;
 }
 
 #choices-container {
@@ -288,8 +291,15 @@ h1 {
     box-shadow: 0 0 0 #1f618d;
 }
 
-.choice-btn:hover {
+.choice-btn:hover,
+.choice-btn:active {
     filter: brightness(1.1);
+}
+
+/* Touch-friendly tap target */
+.choice-btn {
+    -webkit-tap-highlight-color: rgba(52, 152, 219, 0.3);
+    touch-action: manipulation;
 }
 
 /* Logic types styling */
@@ -409,6 +419,9 @@ h1 {
 #game-over-screen {
     background: rgba(0,0,0,0.9);
     z-index: 200;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-over-title {
@@ -443,8 +456,67 @@ h1 {
 @media (max-width: 600px) {
     #choices-container {
         grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 0;
     }
     .stat span {
         display: none;
+    }
+    header {
+        padding: 8px 12px;
+    }
+    h1 {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+    }
+    #opponent-area {
+        padding-top: 8px;
+    }
+    #opponent-portrait {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+    }
+    .bubble {
+        padding: 10px 14px;
+        margin-top: 10px;
+        min-height: 40px;
+        width: 92%;
+    }
+    #opponent-text {
+        font-size: 0.9rem;
+        line-height: 1.35;
+    }
+    #player-area {
+        padding: 10px;
+    }
+    .choice-btn {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+    .screen {
+        padding: 10px;
+    }
+    #game-over-title {
+        font-size: 1.8rem;
+    }
+    #game-over-message {
+        font-size: 1rem;
+        margin-bottom: 15px;
+    }
+    #game-over-screen button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    .objection-bubble,
+    .take-that-bubble {
+        font-size: 2rem;
+        padding: 10px 20px;
+    }
+    .thought-bubble {
+        bottom: 160px;
+        max-width: 180px;
+        font-size: 0.8rem;
+        padding: 10px 15px;
     }
 }
