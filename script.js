@@ -18,8 +18,8 @@ document.getElementById('homework-form').addEventListener('submit', async functi
         const dueDateElement = document.querySelector('.due-date');
         const dueDate = dueDateElement ? dueDateElement.textContent.replace('Due: ', '').trim() : "Feb 17th, 2026";
 
-        // Debate game check: must have beaten Karl Marx
-        if (!localStorage.getItem('marxDefeated')) {
+        // Debate game check: must have beaten Karl Marx (only if modal exists on page)
+        if (document.getElementById('marx-modal') && !localStorage.getItem('marxDefeated')) {
             form.style.display = 'block';
             loading.style.display = 'none';
             showMarxModal();
