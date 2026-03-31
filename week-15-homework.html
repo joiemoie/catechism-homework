@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Homework - Our Lady of Peace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Lady of Peace</h1>
+            <h2>Confirmation Catechism</h2>
+            <div style="margin-top: 1rem; font-style: italic; color: var(--text-light); font-size: 0.95rem;">
+                <p>This website is my personal creation for the <strong>Confirmation II Boy's Class</strong>.</p>
+                <p>I am your teacher, <strong>Joseph Liba</strong>, and I pray for all of you as you study and grow.</p>
+            </div>
+            <div class="meta-info">
+                <span class="badge">Homework: The Great Commission & Evangelization</span>
+                <span class="due-date">Due: March 17th, 2026</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Current Homework</a>
+                <a href="week-15-homework.html" class="nav-link active">Last Week</a>
+                <a href="week-14-homework.html" class="nav-link">Week 14</a>
+                <a href="week-13-homework.html" class="nav-link">Week 13</a>
+                <a href="debate-game.html" class="nav-link">Debate Game</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <p><strong>Reading:</strong> Please read <strong>pages 215–229</strong> in your Confirmation book before completing this assessment.</p>
+                <p>This homework focuses on our mission to spread the Good News and the role of the Holy Spirit in the Church.</p>
+                <p>After finishing the assessment, head to the <a href="debate-game.html" style="color: var(--primary-color); font-weight: 600;">Debate Game tab</a> and put your apologetics to the test — debate Karl Marx and defend the Faith.</p>
+                <p class="points">Total points: 100</p>
+            </section>
+
+            <!-- Results Container (Hidden by default) -->
+            <div id="results-area" style="display: none;">
+                <div class="success-message">
+                    <div class="success-icon">✓</div>
+                    <h2>Assessment Submitted!</h2>
+                    <p>Your responses have been graded.</p>
+                    <div class="score-card" style="margin: 2rem 0; padding: 2rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold);">
+                        <h3 style="font-size: 2rem; color: var(--primary-color);">Score: <span id="final-score">--</span> / <span id="max-score">--</span></h3>
+                    </div>
+                </div>
+                <div id="detailed-results"></div>
+                <div class="form-actions">
+                    <a href="index.html" class="submit-btn" style="text-decoration: none;">Start Over</a>
+                </div>
+            </div>
+
+            <!-- Loading Indicator (Hidden by default) -->
+            <div id="loading-indicator" style="display: none; text-align: center; padding: 4rem;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary-color);">Grading with AI...</h3>
+                <p>Please wait while we analyze your reasoning.</p>
+            </div>
+
+            <!-- Hidden Netlify Form for Data Capture -->
+            <form name="homework-grades" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="hidden" name="form-name" value="homework-grades" />
+                <input type="text" name="student_name" />
+                <input type="email" name="parent_email" />
+                <input type="text" name="due_date" value="March 17th, 2026" />
+                <input type="number" name="percent_score" />
+                <textarea name="ai_feedback"></textarea>
+                <textarea name="email_html_body"></textarea>
+            </form>
+
+            <form id="homework-form">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" name="name" required placeholder="First and Last Name">
+                </div>
+
+                <!-- Parent Email -->
+                <div class="form-group">
+                    <label for="email">Parent's Email (for results)</label>
+                    <input type="email" id="email" name="email" required placeholder="parent@example.com">
+                </div>
+
+                <!-- ========================================== -->
+                <!-- ASSESSMENT QUESTIONS -->
+                <!-- ========================================== -->
+                
+                <!-- Q1 -->
+                <div class="form-group">
+                    <label>1. Write the definition of **evangelization** given in the chapter. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q1_evangelization_def" rows="3" placeholder="Type the definition..."></textarea>
+                </div>
+
+                <!-- Q2 -->
+                <div class="form-group">
+                    <label>2. The **Great Commission** refers to Christ’s command that the Apostles: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q2_commission_mc" value="A"> <span>A) Preach only to the Jewish people first</span></label>
+                        <label class="option"><input type="radio" name="q2_commission_mc" value="B"> <span>B) Make disciples of all nations, baptizing and teaching them</span></label>
+                        <label class="option"><input type="radio" name="q2_commission_mc" value="C"> <span>C) Establish churches before teaching the Gospel</span></label>
+                        <label class="option"><input type="radio" name="q2_commission_mc" value="D"> <span>D) Wait until the Roman Empire accepted Christianity</span></label>
+                    </div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="form-group">
+                    <label>3. According to the chapter, why is evangelization considered **essential** to the Catholic faith rather than optional? <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q3_essential_open" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q4 -->
+                <div class="form-group">
+                    <label>4. The **New Evangelization** is primarily directed toward: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q4_new_evangelization_mc" value="A"> <span>A) Regions that have never heard the Gospel</span></label>
+                        <label class="option"><input type="radio" name="q4_new_evangelization_mc" value="B"> <span>B) Societies where Christianity was once strong but has weakened</span></label>
+                        <label class="option"><input type="radio" name="q4_new_evangelization_mc" value="C"> <span>C) Only non-Christian religions</span></label>
+                        <label class="option"><input type="radio" name="q4_new_evangelization_mc" value="D"> <span>D) Areas where missionaries already live</span></label>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="form-group">
+                    <label>5. What is **apologetics**? <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q5_apologetics_open" rows="2" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q6 -->
+                <div class="form-group">
+                    <label>6. In the story from **Acts 8**, Philip evangelizes the Ethiopian by: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q6_acts8_mc" value="A"> <span>A) Performing a miracle</span></label>
+                        <label class="option"><input type="radio" name="q6_acts8_mc" value="B"> <span>B) Explaining Scripture and leading him to baptism</span></label>
+                        <label class="option"><input type="radio" name="q6_acts8_mc" value="C"> <span>C) Arguing with him about theology</span></label>
+                        <label class="option"><input type="radio" name="q6_acts8_mc" value="D"> <span>D) Sending him to Jerusalem</span></label>
+                    </div>
+                </div>
+
+                <!-- Q7 -->
+                <div class="form-group">
+                    <label>7. Name **two ways** that a Catholic can witness to Christ in everyday life according to the chapter. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q7_witness_open" rows="3" placeholder="1. ...&#10;2. ..."></textarea>
+                </div>
+
+                <!-- Q8 -->
+                <div class="form-group">
+                    <label>8. What is the **Great Commission**? Write Christ’s command in your own words or quote Matthew 28:18–20. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q8_commission_quote_open" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q9 -->
+                <div class="form-group">
+                    <label>9. According to the chapter, **Confirmation** strengthens Christians in order to: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q9_confirmation_mc" value="A"> <span>A) Complete their religious education</span></label>
+                        <label class="option"><input type="radio" name="q9_confirmation_mc" value="B"> <span>B) Strengthen them with the Holy Spirit to witness for Christ</span></label>
+                        <label class="option"><input type="radio" name="q9_confirmation_mc" value="C"> <span>C) Prepare them to become clergy</span></label>
+                        <label class="option"><input type="radio" name="q9_confirmation_mc" value="D"> <span>D) Separate them from the rest of the Church</span></label>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="form-group">
+                    <label>10. List the **four main aspects** of evangelization described in the chapter. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <input type="text" name="q10_aspects_open" placeholder="...">
+                </div>
+
+                <!-- Q11 -->
+                <div class="form-group">
+                    <label>11. **St. Francis Xavier** is remembered primarily for: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q11_xavier_mc" value="A"> <span>A) Defending Catholic doctrine in Europe</span></label>
+                        <label class="option"><input type="radio" name="q11_xavier_mc" value="B"> <span>B) Translating the Bible into Latin</span></label>
+                        <label class="option"><input type="radio" name="q11_xavier_mc" value="C"> <span>C) Traveling widely to preach the Gospel in Asia</span></label>
+                        <label class="option"><input type="radio" name="q11_xavier_mc" value="D"> <span>D) Founding monasteries throughout Italy</span></label>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="form-group">
+                    <label>12. What is **equivocation**? Write a definition in your own words. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q12_equivocation_def" rows="3" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q13 -->
+                <div class="form-group">
+                    <label>13. In modern culture people often say: **“Love is love.”** <br><br>What do people in the modern world usually mean when they say this? What is the error in this statement? <br><br><em>Hint: Think about the different kinds of love (friendship, romantic love, self-giving love).</em> <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q13_love_is_love_open" rows="5" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q14 -->
+                <div class="form-group">
+                    <label>14. According to the chapter, why is **living your faith** important when trying to evangelize others? <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q14_living_faith_importance_open" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q15 -->
+                <div class="form-group">
+                    <label>15. The chapter says Christians should **know, live, share, and defend** their faith. Choose one of these and explain how a Catholic teenager could practice it in daily life. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q15_elements_practice_teen_open" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Assessment</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Our Lady of Peace Catechism Program</p>
+        </footer>
+    </div>
+    <!-- Marx Challenge Modal -->
+    <div id="marx-modal" style="display:none; position:fixed; inset:0; z-index:1000; background:rgba(0,0,0,0.75); justify-content:center; align-items:center;">
+        <div id="marx-modal-card" style="
+            background: #1a252f;
+            border: 4px solid #f1c40f;
+            box-shadow: 0 0 40px rgba(241,196,15,0.4), 10px 10px 0 #000;
+            padding: 2.5rem 3rem;
+            max-width: 480px;
+            width: 90%;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            color: #ecf0f1;
+            transform: scale(0);
+            opacity: 0;
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.25s ease;
+        ">
+            <div style="font-size: 4rem; margin-bottom: 0.5rem;">⚔️</div>
+            <h2 style="font-family: 'Press Start 2P', cursive; font-size: 1rem; color: #f1c40f; text-shadow: 2px 2px 0 #000; margin-bottom: 1rem; line-height: 1.6;">UH OH!</h2>
+            <p style="font-family: 'Press Start 2P', cursive; font-size: 0.65rem; color: #fff; line-height: 1.8; margin-bottom: 0.5rem;">A CHALLENGER HAS APPEARED!</p>
+            <div style="width: 100%; height: 3px; background: #f1c40f; margin: 1.25rem 0;"></div>
+            <p style="font-size: 1rem; color: #bdc3c7; margin-bottom: 1.75rem; line-height: 1.6;">You cannot submit until you defeat <strong style="color:#e74c3c;">Karl Marx</strong> in the Debate Game. Go show him what you're made of.</p>
+            <button id="marx-modal-btn" style="
+                font-family: 'Press Start 2P', cursive;
+                font-size: 0.6rem;
+                background: #e74c3c;
+                color: #fff;
+                border: 3px solid #fff;
+                padding: 14px 28px;
+                cursor: pointer;
+                box-shadow: 4px 4px 0 #000;
+                transition: transform 0.1s, box-shadow 0.1s;
+            ">CHALLENGE HIM →</button>
+        </div>
+    </div>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</body>
+</html>

@@ -40,7 +40,24 @@ exports.handler = async (event, context) => {
   // --- Answer Key & Rubric ---
   let questions = [];
 
-  if (dueDate === "March 17th, 2026") {
+  if (dueDate === "April 7th, 2026") {
+    questions = [
+      { id: "q1_dignity_source", type: "open", points: 7.5, text: "1. Where does human dignity come from? Explain why the Church says every person has worth." },
+      { id: "q2_dignity_mc", type: "radio", points: 5, correct: "B", text: "2. The dignity of every human person comes from:" },
+      { id: "q3_body_mc", type: "radio", points: 5, correct: "B", text: "3. St. Paul compares the Church to:" },
+      { id: "q4_serve_why", type: "open", points: 7.5, text: "4. Why is service to others not optional for Christians? What is the connection between loving God and serving people?" },
+      { id: "q5_life_mc", type: "radio", points: 5, correct: "B", text: "5. The Church teaches that human life must be respected and protected:" },
+      { id: "q6_threats_life", type: "open", points: 10, text: "6. Name at least two specific threats to human life mentioned in the reading and explain why the Church opposes them." },
+      { id: "q7_not_defend_mc", type: "radio", points: 5, correct: "C", text: "7. Which is NOT a way the chapter says Catholics should defend human life?" },
+      { id: "q8_neediest", type: "open", points: 7.5, text: "8. Who are 'the neediest' according to the reading, and why does the Church say we have a special responsibility toward them?" },
+      { id: "q9_corporal_count_mc", type: "radio", points: 5, correct: "C", text: "9. How many Corporal Works of Mercy are there?" },
+      { id: "q10_corporal_list", type: "open", points: 10, text: "10. List all seven Corporal Works of Mercy." },
+      { id: "q11_spiritual_mc", type: "radio", points: 5, correct: "C", text: "11. Which of the following is a Spiritual Work of Mercy?" },
+      { id: "q12_mercy_practice", type: "open", points: 10, text: "12. Choose one Corporal and one Spiritual Work of Mercy. Describe how a teenager could practice each." },
+      { id: "q13_matt25_mc", type: "radio", points: 5, correct: "B", text: "13. In Matthew 25, what does Jesus say about how we treat 'the least of these'?" },
+      { id: "q14_reflection", type: "open", points: 12.5, text: "14. Final Reflection: Jesus identifies Himself with the poor and suffering. What does this teach us about who we are really serving?" }
+    ];
+  } else if (dueDate === "March 17th, 2026") {
     questions = [
       { id: "q1_evangelization_def", type: "open", points: 7.5, text: "1. Write the definition of evangelization given in the chapter." },
       { id: "q2_commission_mc", type: "radio", points: 5, correct: "B", text: "2. The Great Commission refers to Christ’s command that the Apostles:" },
