@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Homework - Our Lady of Peace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Our Lady of Peace</h1>
+            <h2>Confirmation Catechism</h2>
+            <div style="margin-top: 1rem; font-style: italic; color: var(--text-light); font-size: 0.95rem;">
+                <p>This website is my personal creation for the <strong>Confirmation II Boy's Class</strong>.</p>
+                <p>I am your teacher, <strong>Joseph Liba</strong>, and I pray for all of you as you study and grow.</p>
+            </div>
+            <div class="meta-info">
+                <span class="badge">Homework: Serving Others & The Works of Mercy</span>
+                <span class="due-date">Due: April 7th, 2026</span>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Current Homework</a>
+                <a href="week-16-homework.html" class="nav-link active">Week 16</a>
+                <a href="week-15-homework.html" class="nav-link">Week 15</a>
+                <a href="week-14-homework.html" class="nav-link">Week 14</a>
+                <a href="week-13-homework.html" class="nav-link">Week 13</a>
+                <a href="debate-game.html" class="nav-link">Debate Game</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="instructions">
+                <h3>Instructions</h3>
+                <p><strong>Reading:</strong> Please read <strong>pages 235&ndash;240</strong> in your Confirmation book (Chapter 12, through the section on <strong>The Works of Mercy</strong>) before completing this assessment.</p>
+                <p>This homework focuses on the dignity of the human person, our call to serve others, defending human life, and the Corporal and Spiritual Works of Mercy.</p>
+                <p class="points">Total points: 100</p>
+            </section>
+
+            <!-- Results Container (Hidden by default) -->
+            <div id="results-area" style="display: none;">
+                <div class="success-message">
+                    <div class="success-icon">&#10003;</div>
+                    <h2>Assessment Submitted!</h2>
+                    <p>Your responses have been graded.</p>
+                    <div class="score-card" style="margin: 2rem 0; padding: 2rem; background: rgba(212, 175, 55, 0.1); border: 1px solid var(--accent-gold);">
+                        <h3 style="font-size: 2rem; color: var(--primary-color);">Score: <span id="final-score">--</span> / <span id="max-score">--</span></h3>
+                    </div>
+                </div>
+                <div id="detailed-results"></div>
+                <div class="form-actions">
+                    <a href="index.html" class="submit-btn" style="text-decoration: none;">Start Over</a>
+                </div>
+            </div>
+
+            <!-- Loading Indicator (Hidden by default) -->
+            <div id="loading-indicator" style="display: none; text-align: center; padding: 4rem;">
+                <h3 style="font-family: var(--font-heading); color: var(--primary-color);">Grading with AI...</h3>
+                <p>Please wait while we analyze your reasoning.</p>
+            </div>
+
+            <!-- Hidden Netlify Form for Data Capture -->
+            <form name="homework-grades" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+                <input type="hidden" name="form-name" value="homework-grades" />
+                <input type="text" name="student_name" />
+                <input type="email" name="parent_email" />
+                <input type="text" name="due_date" value="April 7th, 2026" />
+                <input type="number" name="percent_score" />
+                <textarea name="ai_feedback"></textarea>
+                <textarea name="email_html_body"></textarea>
+            </form>
+
+            <form id="homework-form">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">What is your name?</label>
+                    <input type="text" id="name" name="name" required placeholder="First and Last Name">
+                </div>
+
+                <!-- Parent Email -->
+                <div class="form-group">
+                    <label for="email">Parent's Email (for results)</label>
+                    <input type="email" id="email" name="email" required placeholder="parent@example.com">
+                </div>
+
+                <!-- ========================================== -->
+                <!-- PART I: THE DIGNITY OF THE HUMAN PERSON -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin-bottom: 2rem;">Part I: The Dignity of the Human Person</h2>
+
+                <!-- Q1 -->
+                <div class="form-group">
+                    <label>1. According to the chapter introduction, the Church teaches that every single human person has inherent dignity. <strong>Where does this dignity come from?</strong> Explain in your own words why the Church says every person &mdash; no matter who they are &mdash; has worth. <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q1_dignity_source" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q2 -->
+                <div class="form-group">
+                    <label>2. The dignity of every human person comes from: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q2_dignity_mc" value="A"> <span>A) Their achievements and contributions to society</span></label>
+                        <label class="option"><input type="radio" name="q2_dignity_mc" value="B"> <span>B) Being created in the image and likeness of God</span></label>
+                        <label class="option"><input type="radio" name="q2_dignity_mc" value="C"> <span>C) Their social status and wealth</span></label>
+                        <label class="option"><input type="radio" name="q2_dignity_mc" value="D"> <span>D) The laws of the government</span></label>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- PART II: WE ARE CALLED TO SERVE -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part II: We Are Called to Serve</h2>
+
+                <!-- Q3 -->
+                <div class="form-group">
+                    <label>3. St. Paul uses a powerful image to describe how Christians relate to one another. He compares the Church to: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q3_body_mc" value="A"> <span>A) Stars in the sky, each shining independently</span></label>
+                        <label class="option"><input type="radio" name="q3_body_mc" value="B"> <span>B) Parts of one body, each with a different role</span></label>
+                        <label class="option"><input type="radio" name="q3_body_mc" value="C"> <span>C) Soldiers in an army following orders</span></label>
+                        <label class="option"><input type="radio" name="q3_body_mc" value="D"> <span>D) Pages in a book telling one story</span></label>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="form-group">
+                    <label>4. In the section "We Are Called to Serve," the text explains that service to others is not optional for Christians. <strong>Why not?</strong> What does this section say about the connection between loving God and serving other people? <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q4_serve_why" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- PART III: DEFENDING HUMAN LIFE -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part III: Defending Human Life</h2>
+
+                <!-- Q5 -->
+                <div class="form-group">
+                    <label>5. The Church teaches that human life must be respected and protected: <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q5_life_mc" value="A"> <span>A) Only after birth</span></label>
+                        <label class="option"><input type="radio" name="q5_life_mc" value="B"> <span>B) From the moment of conception to natural death</span></label>
+                        <label class="option"><input type="radio" name="q5_life_mc" value="C"> <span>C) Only during childhood and old age</span></label>
+                        <label class="option"><input type="radio" name="q5_life_mc" value="D"> <span>D) Only when a person is healthy and productive</span></label>
+                    </div>
+                </div>
+
+                <!-- Q6 -->
+                <div class="form-group">
+                    <label>6. The chapter discusses several threats to human life that the Church speaks out against. <strong>Name at least two</strong> specific issues mentioned in the reading and explain why the Church opposes them. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q6_threats_life" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- Q7 -->
+                <div class="form-group">
+                    <label>7. Which of the following is <strong>NOT</strong> a way the chapter says Catholics should defend human life? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q7_not_defend_mc" value="A"> <span>A) Advocating for the unborn</span></label>
+                        <label class="option"><input type="radio" name="q7_not_defend_mc" value="B"> <span>B) Caring for the elderly and dying</span></label>
+                        <label class="option"><input type="radio" name="q7_not_defend_mc" value="C"> <span>C) Only helping people who share our beliefs</span></label>
+                        <label class="option"><input type="radio" name="q7_not_defend_mc" value="D"> <span>D) Speaking out against injustice</span></label>
+                    </div>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- PART IV: SERVING THE NEEDIEST -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part IV: Serving the Neediest</h2>
+
+                <!-- Q8 -->
+                <div class="form-group">
+                    <label>8. The chapter talks about a special obligation to serve "the neediest." <strong>Who are the neediest</strong> according to the reading, and why does the Church say we have a special responsibility toward them? <span style="font-size: 0.8em; color: var(--text-light);">(7.5 points)</span></label>
+                    <textarea name="q8_neediest" rows="4" placeholder="Your answer..."></textarea>
+                </div>
+
+                <!-- ========================================== -->
+                <!-- PART V: THE WORKS OF MERCY -->
+                <!-- ========================================== -->
+                <h2 style="font-family: var(--font-heading); color: var(--primary-color); text-align: center; margin: 3rem 0 2rem;">Part V: The Works of Mercy</h2>
+
+                <!-- Q9 -->
+                <div class="form-group">
+                    <label>9. How many <strong>Corporal</strong> Works of Mercy are there? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q9_corporal_count_mc" value="A"> <span>A) Five</span></label>
+                        <label class="option"><input type="radio" name="q9_corporal_count_mc" value="B"> <span>B) Six</span></label>
+                        <label class="option"><input type="radio" name="q9_corporal_count_mc" value="C"> <span>C) Seven</span></label>
+                        <label class="option"><input type="radio" name="q9_corporal_count_mc" value="D"> <span>D) Ten</span></label>
+                    </div>
+                </div>
+
+                <!-- Q10 -->
+                <div class="form-group">
+                    <label>10. List <strong>all seven Corporal Works of Mercy</strong> from the chapter. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q10_corporal_list" rows="4" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+                </div>
+
+                <!-- Q11 -->
+                <div class="form-group">
+                    <label>11. Which of the following is a <strong>Spiritual</strong> Work of Mercy (not a Corporal one)? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q11_spiritual_mc" value="A"> <span>A) Feed the hungry</span></label>
+                        <label class="option"><input type="radio" name="q11_spiritual_mc" value="B"> <span>B) Shelter the homeless</span></label>
+                        <label class="option"><input type="radio" name="q11_spiritual_mc" value="C"> <span>C) Instruct the ignorant</span></label>
+                        <label class="option"><input type="radio" name="q11_spiritual_mc" value="D"> <span>D) Visit the sick</span></label>
+                    </div>
+                </div>
+
+                <!-- Q12 -->
+                <div class="form-group">
+                    <label>12. Choose <strong>one Corporal Work of Mercy</strong> and <strong>one Spiritual Work of Mercy</strong>. For each, describe a specific, realistic way that <em>you as a teenager</em> could practice it this week. <span style="font-size: 0.8em; color: var(--text-light);">(10 points)</span></label>
+                    <textarea name="q12_mercy_practice" rows="5" placeholder="Corporal Work: ...&#10;How I could practice it: ...&#10;&#10;Spiritual Work: ...&#10;How I could practice it: ..."></textarea>
+                </div>
+
+                <!-- Q13 -->
+                <div class="form-group">
+                    <label>13. Jesus teaches about the Works of Mercy most directly in <strong>Matthew 25</strong>, where He describes the judgment of the nations. In that passage, what does Jesus say about how we treat "the least of these"? <span style="font-size: 0.8em; color: var(--text-light);">(5 points)</span></label>
+                    <div class="radio-group">
+                        <label class="option"><input type="radio" name="q13_matt25_mc" value="A"> <span>A) "The least of these must earn their place in heaven."</span></label>
+                        <label class="option"><input type="radio" name="q13_matt25_mc" value="B"> <span>B) "Whatever you did for one of the least of these, you did for me."</span></label>
+                        <label class="option"><input type="radio" name="q13_matt25_mc" value="C"> <span>C) "Care for the least of these only when it is convenient."</span></label>
+                        <label class="option"><input type="radio" name="q13_matt25_mc" value="D"> <span>D) "The least of these will take care of themselves."</span></label>
+                    </div>
+                </div>
+
+                <!-- Q14 -->
+                <div class="form-group">
+                    <label>14. <strong>Final Reflection:</strong> Jesus identifies Himself with the poor, the hungry, the imprisoned, and the suffering. What does this teach us about <em>who we are really serving</em> when we help someone in need? How should this change the way we look at people around us? <span style="font-size: 0.8em; color: var(--text-light);">(12.5 points)</span></label>
+                    <textarea name="q14_reflection" rows="5" placeholder="Your reflection..."></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Submit Assessment</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Our Lady of Peace Catechism Program</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

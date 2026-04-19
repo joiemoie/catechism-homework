@@ -40,7 +40,29 @@ exports.handler = async (event, context) => {
   // --- Answer Key & Rubric ---
   let questions = [];
 
-  if (dueDate === "April 7th, 2026") {
+  if (dueDate === "April 28th, 2026") {
+    questions = [
+      { id: "q1_stewardship", type: "open", points: 7.5, text: "1. What does it mean to be a 'steward' of God's creation? Explain the responsibility God gives to humanity over the earth." },
+      { id: "q2_creation_mc", type: "radio", points: 5, correct: "B", text: "2. When God commanded Adam to care for the earth, the chapter teaches that creation was given to us:" },
+      { id: "q3_charity_justice_mc", type: "radio", points: 5, correct: "C", text: "3. What is the most important difference between 'charity' and 'justice'?" },
+      { id: "q4_charity_justice_open", type: "open", points: 7.5, text: "4. Give a concrete example of a charitable act and a just act. Explain how they differ and why both are necessary." },
+      { id: "q5_family_mc", type: "radio", points: 5, correct: "B", text: "5. According to Catholic Social Teaching, the family is described as:" },
+      { id: "q6_dignity_work_open", type: "open", points: 7.5, text: "6. What does the 'dignity of human work' principle mean? Why does the Church teach that all honest work has dignity?" },
+      { id: "q7_solidarity_mc", type: "radio", points: 5, correct: "C", text: "7. 'Solidarity among all people' in Catholic Social Teaching means:" },
+      { id: "q8_universal_goods_open", type: "open", points: 7.5, text: "8. What is the 'universal destination of goods'? What does the Church teach about the world's resources and who they belong to?" },
+      { id: "q9_teresa_mc", type: "radio", points: 5, correct: "C", text: "9. St. Teresa of Calcutta (Mother Teresa) founded her ministry to:" },
+      { id: "q10_calcutta_open", type: "open", points: 7.5, text: "10. What does 'Find your own Calcutta' mean? Who is your 'Calcutta' and how could you serve them?" },
+      { id: "q11_new_commandment_mc", type: "radio", points: 5, correct: "B", text: "11. What is Jesus's 'New Commandment' (John 13:34)?" },
+      { id: "q12_trinity_open", type: "open", points: 15, text: "12. How does the life of the Blessed Trinity serve as a model for Christian community and solidarity? What does it look like to live that love toward others?" },
+      { id: "q13_starfish_mc", type: "radio", points: 5, correct: "C", text: "13. The parable of the starfish in the 'What Can You Do?' section teaches:" },
+      { id: "q14_final_reflection", type: "open", points: 12.5, text: "14. Final Reflection: What one thing do you feel most called to change or start doing based on Chapter 12? How will the grace of Confirmation help you do it?" },
+      { id: "q15_crusade_cause_mc", type: "radio", points: 5, correct: "C", text: "15. Based on historical facts from class, what actually triggered the First Crusade?" },
+      { id: "q16_crusade_motive_mc", type: "radio", points: 5, correct: "C", text: "16. Which best describes why ordinary people left everything to go on Crusade?" },
+      { id: "q17_indulgence_mc", type: "radio", points: 5, correct: "B", text: "17. A Crusader who died in battle received:" },
+      { id: "q18_why_crusade_open", type: "open", points: 10, text: "18. No pay, self-funded, risk of death, excommunication if you flee — why do you think people actually went on Crusade? What were they seeking?" },
+      { id: "q19_crusade_spirit_open", type: "open", points: 10, text: "19. The Church doesn't call us to take up arms today. What are two or three specific ways you could embrace the spirit of the Crusade — total, self-sacrificing commitment driven by faith — in your own life right now?" }
+    ];
+  } else if (dueDate === "April 7th, 2026") {
     questions = [
       { id: "q1_dignity_source", type: "open", points: 7.5, text: "1. Where does human dignity come from? Explain why the Church says every person has worth." },
       { id: "q2_dignity_mc", type: "radio", points: 5, correct: "B", text: "2. The dignity of every human person comes from:" },
